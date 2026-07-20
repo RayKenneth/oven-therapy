@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,66 +10,122 @@
 
 <body>
 
-<nav>
+    <!-- Navigation -->
+    <nav>
 
-<div class="logo">
-🍞 Oven Therapy
-</div>
+        <div class="logo">
+            🍞 Oven Therapy
+        </div>
 
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#products">Products</a></li>
-<li><a href="#">About</a></li>
-<li><a href="#">Contact</a></li>
-</ul>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
 
-</nav>
+    </nav>
 
-<header>
+    <!-- Hero Section -->
+    <header>
 
-<header>
+        <h1>🍞 Oven Therapy</h1>
 
-<h1>🍞 Oven Therapy</h1>
+        <p>Freshly baked. Made for comfort.</p>
 
-<p>Freshly baked. Made for comfort.</p>
+        <button onclick="location.href='#products'">
+            Order Now
+        </button>
 
-<button onclick="location.href='#products'">Order Now</button>
+    </header>
 
-</header>
+    <!-- Products -->
+    <section class="products" id="products">
 
-<section class="products" id="products">
+        <div class="card">
 
-<div class="card">
-<h2>Classic</h2>
-<p>₱60</p>
-<button>Order</button>
-</div>
+            <h2>Classic</h2>
 
-<div class="card">
-<h2>Cheese</h2>
-<p>₱70</p>
-<button>Order</button>
-</div>
+            <img src="images/classic.jpg" alt="Classic Cinnamon Roll">
 
-<div class="card">
-<h2>Oreo</h2>
-<p>₱70</p>
-<button>Order</button>
-</div>
+            <p>₱60</p>
 
-<div class="card">
-<h2>Almond</h2>
-<p>₱70</p>
-<button>Order</button>
-</div>
+            <button>Order</button>
 
-</section>
+        </div>
 
-<footer>
-© 2026 Oven Therapy
-</footer>
+        <div class="card">
 
-<script src="js/script.js"></script>
+            <h2>Cheese</h2>
+
+            <img src="images/cheese.jpg" alt="Cheese Cinnamon Roll">
+
+            <p>₱70</p>
+
+            <button>Order</button>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Oreo</h2>
+
+            <img src="images/oreo.jpg" alt="Oreo Cinnamon Roll">
+
+            <p>₱70</p>
+
+            <button>Order</button>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Almond</h2>
+
+            <img src="images/almond.jpg" alt="Almond Cinnamon Roll">
+
+            <p>₱70</p>
+
+            <button>Order</button>
+
+        </div>
+
+    </section>
+
+    <!-- About -->
+    <section id="about">
+
+        <h2>About Oven Therapy</h2>
+
+        <p>
+            Oven Therapy creates freshly baked cinnamon rolls made with quality
+            ingredients and baked with care. Every bite is made to bring warmth,
+            comfort, and happiness.
+        </p>
+
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>📍 Panabo City, Davao del Norte</p>
+
+        <p>📱 Facebook: Oven Therapy</p>
+
+        <p>📧 Email: your@email.com</p>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <p>© 2026 Oven Therapy. All Rights Reserved.</p>
+
+    </footer>
+
+    <script src="js/script.js"></script>
 
 </body>
 </html>
