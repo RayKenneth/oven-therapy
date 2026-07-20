@@ -1,139 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Oven Therapy</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-body{
-    background:#f8f4ee;
-    color:#333;
-}
-
-header{
-    background:#73765b;
-    color:white;
-    text-align:center;
-    padding:60px 20px;
-}
-
-header h1{
-    font-size:3rem;
-    margin-bottom:15px;
-}
-
-header p{
-    font-size:1.2rem;
-    margin-bottom:25px;
-}
-
-button{
-    background:#f5efe5;
-    color:#73765b;
-    border:none;
-    padding:14px 30px;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:16px;
-    transition:.3s;
-}
-
-button:hover{
-    transform:scale(1.05);
-}
-
-.products{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:25px;
-    padding:60px 20px;
-}
-
-.card{
-    background:white;
-    width:230px;
-    border-radius:15px;
-    padding:20px;
-    text-align:center;
-    box-shadow:0 10px 20px rgba(0,0,0,.1);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-}
-
-.card h2{
-    margin-bottom:15px;
-}
-
-.price{
-    font-size:24px;
-    color:#73765b;
-    margin:15px 0;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    background:#73765b;
-    color:white;
-}
-</style>
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
 <header>
+
 <h1>🍞 Oven Therapy</h1>
+
 <p>Freshly baked. Made for comfort.</p>
 
 <button>Order Now</button>
+
 </header>
 
 <section class="products">
 
 <div class="card">
+
 <h2>Classic</h2>
-<p class="price">₱60</p>
+
+<img src="images/classic.jpg">
+
+<p>₱60</p>
+
 <button>Order</button>
+
 </div>
 
 <div class="card">
+
 <h2>Cheese</h2>
-<p class="price">₱70</p>
+
+<img src="images/cheese.jpg">
+
+<p>₱70</p>
+
 <button>Order</button>
+
 </div>
 
 <div class="card">
+
 <h2>Oreo</h2>
-<p class="price">₱70</p>
+
+<img src="images/oreo.jpg">
+
+<p>₱70</p>
+
 <button>Order</button>
+
 </div>
 
 <div class="card">
+
 <h2>Almond</h2>
-<p class="price">₱70</p>
+
+<img src="images/almond.jpg">
+
+<p>₱70</p>
+
 <button>Order</button>
+
 </div>
 
 </section>
 
-<footer>
-
-© 2026 Oven Therapy
-
-</footer>
+<script src="js/script.js"></script>
 
 </body>
+
 </html>
