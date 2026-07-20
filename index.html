@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Oven Therapy</title>
 
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
 
     <!-- Navigation -->
+
     <nav>
 
         <div class="logo">
@@ -26,27 +31,29 @@
 
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
+
     <header>
 
         <h1>🍞 Oven Therapy</h1>
 
         <p>Freshly baked. Made for comfort.</p>
 
-        <button onclick="location.href='#products'">
+        <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
             Order Now
         </button>
 
     </header>
 
     <!-- Products -->
-    <section class="products" id="products">
+
+    <section id="products" class="products">
 
         <div class="card">
 
             <h2>Classic</h2>
 
-            <img src="images/classic.jpg" alt="Classic Cinnamon Roll">
+            <img src="images/classic.png" alt="Classic Cinnamon Roll">
 
             <p>₱60</p>
 
@@ -58,7 +65,7 @@
 
             <h2>Cheese</h2>
 
-            <img src="images/cheese.jpg" alt="Cheese Cinnamon Roll">
+            <img src="images/cheese.png" alt="Cheese Cinnamon Roll">
 
             <p>₱70</p>
 
@@ -70,7 +77,7 @@
 
             <h2>Oreo</h2>
 
-            <img src="images/oreo.jpg" alt="Oreo Cinnamon Roll">
+            <img src="images/oreo.png" alt="Oreo Cinnamon Roll">
 
             <p>₱70</p>
 
@@ -82,7 +89,7 @@
 
             <h2>Almond</h2>
 
-            <img src="images/almond.jpg" alt="Almond Cinnamon Roll">
+            <img src="images/almond.png" alt="Almond Cinnamon Roll">
 
             <p>₱70</p>
 
@@ -93,19 +100,21 @@
     </section>
 
     <!-- About -->
+
     <section id="about">
 
         <h2>About Oven Therapy</h2>
 
         <p>
-            Oven Therapy creates freshly baked cinnamon rolls made with quality
-            ingredients and baked with care. Every bite is made to bring warmth,
-            comfort, and happiness.
+            Oven Therapy creates freshly baked cinnamon rolls made with premium
+            ingredients, rich fillings, and lots of love.
+            Every roll is baked fresh to bring comfort and happiness with every bite.
         </p>
 
     </section>
 
     <!-- Contact -->
+
     <section id="contact">
 
         <h2>Contact Us</h2>
@@ -114,18 +123,18 @@
 
         <p>📱 Facebook: Oven Therapy</p>
 
-        <p>📧 Email: your@email.com</p>
+        <p>📧 oventherapybakery@gmail.com</p>
 
     </section>
 
     <!-- Footer -->
+
     <footer>
 
-        <p>© 2026 Oven Therapy. All Rights Reserved.</p>
+        © 2026 Oven Therapy. All Rights Reserved.
 
     </footer>
 
-    <script src="js/script.js"></script>
-
 </body>
+
 </html>
