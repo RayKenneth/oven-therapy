@@ -1,5 +1,6 @@
 /* ===================================
    OVEN THERAPY - STYLE.CSS
+   Brand System
 =================================== */
 
 
@@ -9,7 +10,6 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
 }
 
 
@@ -19,253 +19,384 @@ html{
 
 
 body{
-    background:#f8f4ee;
-    color:#333;
+
+    background:#F5EFE5;
+
+    color:#3D2D22;
+
+    font-family:"Open Sans", sans-serif;
+
     line-height:1.6;
+
 }
+
+
+
+/* HEADINGS */
+
+h1,
+h2,
+h3,
+.logo{
+
+    font-family:"Cormorant Garamond", serif;
+
+    font-weight:600;
+
+}
+
 
 
 /* NAVIGATION */
 
+
 nav{
+
     position:sticky;
+
     top:0;
+
     z-index:1000;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     padding:18px 8%;
 
-    background:#ffffff;
+    background:#F5EFE5;
 
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    box-shadow:0 2px 10px rgba(61,45,34,0.12);
+
 }
+
 
 
 .logo{
-    font-size:30px;
-    font-weight:bold;
-    color:#73765b;
+
+    font-size:34px;
+
+    color:#73765B;
+
 }
+
 
 
 nav ul{
+
     display:flex;
+
     list-style:none;
+
     gap:30px;
+
 }
+
 
 
 nav ul li a{
+
     text-decoration:none;
-    color:#333;
-    font-weight:bold;
+
+    color:#3D2D22;
+
+    font-weight:600;
+
 }
+
+
+
+nav ul li a:hover{
+
+    color:#A86F4B;
+
+}
+
 
 
 /* HERO */
 
+
 header{
-    background:#73765b;
-    color:white;
+
+    background:#73765B;
+
+    color:#F5EFE5;
+
     text-align:center;
-    padding:90px 20px;
+
+    padding:100px 20px;
+
 }
+
 
 
 header h1{
-    font-size:58px;
+
+    font-size:72px;
+
     margin-bottom:15px;
+
 }
+
 
 
 header p{
+
     font-size:22px;
+
     margin-bottom:35px;
+
 }
 
 
+
 header button{
-    background:#f5efe5;
-    color:#73765b;
+
+    background:#A86F4B;
+
+    color:#F5EFE5;
+
     border:none;
-    padding:15px 40px;
+
+    padding:15px 45px;
+
     border-radius:40px;
-    font-size:18px;
+
+    font-size:17px;
+
+    font-weight:600;
+
     cursor:pointer;
+
+}
+
+
+
+header button:hover{
+
+    background:#3D2D22;
+
 }
 
 
 
 /* PRODUCTS */
 
+
 .products{
 
-    width:100%;
+    padding:80px 8%;
+
+    text-align:center;
+
+}
+
+
+
+.products > h2{
+
+    color:#3D2D22;
+
+    font-size:48px;
+
+    margin-bottom:50px;
+
+}
+
+
+
+.product-container{
 
     display:flex;
 
     justify-content:center;
 
-    align-items:center;
+    align-items:stretch;
 
     flex-wrap:wrap;
 
     gap:30px;
 
-    padding:70px 8%;
-
 }
+
 
 
 .card{
 
-    width:240px;
+    width:260px;
 
-    background:white;
+    background:#ffffff;
 
-    border-radius:18px;
+    border-radius:20px;
 
-    box-shadow:0 8px 18px rgba(0,0,0,.08);
+    padding:25px;
+
+    box-shadow:0 8px 20px rgba(61,45,34,0.12);
 
     text-align:center;
 
-    padding:20px;
+    transition:.3s;
 
 }
+
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
 
 
 .card img{
 
-    width:140px;
+    width:150px;
 
-    height:140px;
+    height:150px;
 
     object-fit:contain;
 
-    display:block;
-
-    margin:10px auto 20px;
+    margin-bottom:20px;
 
 }
 
 
-.card h2{
 
-    font-size:24px;
+.card h3{
 
-    color:#73765b;
+    font-size:32px;
+
+    color:#73765B;
+
+    margin-bottom:10px;
 
 }
+
 
 
 .card p{
+
+    font-size:15px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.card span{
+
+    display:block;
 
     font-size:28px;
 
     font-weight:bold;
 
-    margin:15px 0;
+    color:#3D2D22;
+
+    margin-bottom:20px;
 
 }
 
 
+
 .card button{
 
-    background:#73765b;
+    background:#73765B;
 
     color:white;
 
     border:none;
 
-    padding:12px 28px;
+    padding:12px 35px;
 
     border-radius:30px;
 
+    cursor:pointer;
+
 }
+
+
+
+.card button:hover{
+
+    background:#A86F4B;
+
+}
+
+
 
 
 
 /* WHY CHOOSE */
 
+
 .why{
 
-    background:white;
-
-    width:100%;
+    background:#ffffff;
 
     padding:80px 8%;
 
-}
-
-
-.why-container{
-
-    width:100%;
-
-    max-width:1200px;
-
-    margin:0 auto;
+    text-align:center;
 
 }
+
 
 
 .why h2{
 
-    text-align:center;
+    font-size:48px;
 
-    font-size:42px;
+    color:#3D2D22;
 
-    color:#73765b;
-
-    margin-bottom:40px;
+    margin-bottom:50px;
 
 }
 
 
-.features{
 
-    width:100%;
+.features{
 
     display:flex;
 
     justify-content:center;
-
-    align-items:center;
 
     gap:30px;
 
     flex-wrap:wrap;
 
 }
+
 
 
 .feature{
 
     width:300px;
 
-    background:#f8f4ee;
+    background:#F5EFE5;
 
-    padding:30px;
+    padding:35px;
 
-    border-radius:18px;
-
-    text-align:center;
+    border-radius:20px;
 
 }
+
 
 
 .feature h3{
 
-    color:#73765b;
+    font-size:30px;
 
-    font-size:22px;
+    color:#73765B;
 
     margin-bottom:15px;
 
 }
+
 
 
 .feature p{
@@ -276,11 +407,12 @@ header button{
 
 
 
+
+
 /* ABOUT */
 
-#about{
 
-    background:white;
+#about{
 
     padding:80px 10%;
 
@@ -289,15 +421,17 @@ header button{
 }
 
 
+
 #about h2{
 
-    font-size:42px;
+    font-size:48px;
 
-    color:#73765b;
+    color:#3D2D22;
 
     margin-bottom:20px;
 
 }
+
 
 
 #about p{
@@ -306,15 +440,20 @@ header button{
 
     margin:auto;
 
-    font-size:20px;
+    font-size:18px;
 
 }
 
 
 
+
+
 /* CONTACT */
 
+
 #contact{
+
+    background:#ffffff;
 
     padding:80px 10%;
 
@@ -323,11 +462,12 @@ header button{
 }
 
 
+
 #contact h2{
 
-    font-size:42px;
+    font-size:48px;
 
-    color:#73765b;
+    color:#3D2D22;
 
     margin-bottom:20px;
 
@@ -335,13 +475,24 @@ header button{
 
 
 
+#contact p{
+
+    margin:10px;
+
+}
+
+
+
+
+
 /* FOOTER */
+
 
 footer{
 
-    background:#73765b;
+    background:#73765B;
 
-    color:white;
+    color:#F5EFE5;
 
     text-align:center;
 
@@ -351,64 +502,70 @@ footer{
 
 
 
+
+
 /* MOBILE */
 
-@media screen and (max-width:768px){
 
-    nav{
-
-        flex-direction:column;
-
-        gap:15px;
-
-    }
+@media(max-width:768px){
 
 
-    nav ul{
+nav{
 
-        flex-direction:column;
+    flex-direction:column;
 
-        text-align:center;
+    gap:15px;
 
-    }
-
-
-    header h1{
-
-        font-size:42px;
-
-    }
+}
 
 
-    .products{
 
-        flex-direction:column;
+nav ul{
 
-    }
+    flex-direction:column;
 
+    text-align:center;
 
-    .card{
-
-        width:90%;
-
-        max-width:320px;
-
-    }
+}
 
 
-    .card img{
 
-        width:130px;
+header h1{
 
-        height:130px;
+    font-size:48px;
 
-    }
+}
 
 
-    .features{
 
-        flex-direction:column;
+.products > h2,
+.why h2,
+#about h2,
+#contact h2{
 
-    }
+    font-size:36px;
+
+}
+
+
+
+.card{
+
+    width:90%;
+
+    max-width:320px;
+
+}
+
+
+
+.features{
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
 
 }
