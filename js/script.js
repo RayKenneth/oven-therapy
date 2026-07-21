@@ -1,12 +1,10 @@
 /* ===================================
    OVEN THERAPY
-   PREMIUM WEBSITE JAVASCRIPT
+   PREMIUM WEBSITE SCRIPT
 =================================== */
 
 
 document.addEventListener("DOMContentLoaded", function(){
-
-
 
 
 
@@ -30,11 +28,10 @@ revealElements.forEach(element => {
 
 
 
-
 function revealOnScroll(){
 
 
-    const trigger =
+    const triggerPoint =
     window.innerHeight * 0.85;
 
 
@@ -48,11 +45,9 @@ function revealOnScroll(){
 
 
 
-        if(elementTop < trigger){
-
+        if(elementTop < triggerPoint){
 
             element.classList.add("show");
-
 
         }
 
@@ -109,7 +104,7 @@ window.addEventListener(
 
 
             nav.style.boxShadow =
-            "0 10px 30px rgba(61,45,34,.18)";
+            "0 8px 25px rgba(61,45,34,.15)";
 
 
 
@@ -127,7 +122,6 @@ window.addEventListener(
             "none";
 
 
-
         }
 
 
@@ -144,40 +138,46 @@ window.addEventListener(
 
 
 /* ===================================
-   HERO IMAGE PARALLAX
+   HERO BUTTON
 =================================== */
 
 
-const heroImage =
-document.querySelector(".hero-image img");
+const heroButton =
+document.querySelector(".hero button");
 
 
 
-window.addEventListener(
-    "scroll",
-    function(){
+if(heroButton){
+
+
+    heroButton.addEventListener(
+        "click",
+        function(){
+
+
+            const products =
+            document.querySelector("#flavors");
 
 
 
-        if(heroImage){
+            if(products){
 
 
-            let movement =
-            window.scrollY * 0.12;
+                products.scrollIntoView({
+
+                    behavior:"smooth"
+
+                });
 
 
-
-            heroImage.style.transform =
-            `translateY(${movement}px)`;
-
+            }
 
 
         }
+    );
 
 
-
-    }
-);
+}
 
 
 
@@ -188,125 +188,7 @@ window.addEventListener(
 
 
 /* ===================================
-   PRODUCT IMAGE FLOAT EFFECT
-=================================== */
-
-
-const productImages =
-document.querySelectorAll(
-    ".flavor-image img"
-);
-
-
-
-productImages.forEach(image => {
-
-
-
-    image.addEventListener(
-        "mouseenter",
-        function(){
-
-
-
-            image.style.transform =
-            "scale(1.08) translateY(-15px)";
-
-
-
-        }
-    );
-
-
-
-
-    image.addEventListener(
-        "mouseleave",
-        function(){
-
-
-
-            image.style.transform =
-            "scale(1)";
-
-
-
-        }
-    );
-
-
-
-});
-
-
-
-
-
-
-
-
-
-/* ===================================
-   PRODUCT CARD HOVER EFFECT
-=================================== */
-
-
-const flavorSections =
-document.querySelectorAll(
-    ".flavor-section"
-);
-
-
-
-flavorSections.forEach(section => {
-
-
-
-    section.addEventListener(
-        "mouseenter",
-        function(){
-
-
-
-            section.style.boxShadow =
-            "0 30px 60px rgba(61,45,34,.25)";
-
-
-
-        }
-    );
-
-
-
-
-    section.addEventListener(
-        "mouseleave",
-        function(){
-
-
-
-            section.style.boxShadow =
-            "0 20px 40px rgba(61,45,34,.12)";
-
-
-
-        }
-    );
-
-
-
-});
-
-
-
-
-
-
-
-
-
-/* ===================================
-   SMOOTH NAVIGATION
+   NAVIGATION SMOOTH SCROLL
 =================================== */
 
 
@@ -370,54 +252,112 @@ navLinks.forEach(link => {
 
 
 /* ===================================
-   HERO ORDER BUTTON
+   PRODUCT IMAGE FLOAT EFFECT
 =================================== */
 
 
-const heroButton =
-document.querySelector(
-    ".hero button"
+const productImages =
+document.querySelectorAll(
+    ".flavor-image img"
 );
 
 
 
-if(heroButton){
-
-
-heroButton.addEventListener(
-    "click",
-    function(){
+productImages.forEach(image => {
 
 
 
-        const products =
-        document.querySelector(
-            "#flavors"
-        );
+    image.addEventListener(
+        "mouseenter",
+        function(){
+
+
+            image.style.transform =
+            "scale(1.08) translateY(-15px)";
+
+
+        }
+    );
 
 
 
-        if(products){
+
+
+    image.addEventListener(
+        "mouseleave",
+        function(){
+
+
+            image.style.transform =
+            "scale(1) translateY(0)";
+
+
+        }
+    );
 
 
 
-            products.scrollIntoView({
+});
 
-                behavior:"smooth"
 
-            });
+
+
+
+
+
+
+
+/* ===================================
+   PRODUCT CARD MOUSE EFFECT
+=================================== */
+
+
+const flavorCards =
+document.querySelectorAll(
+    ".flavor-section"
+);
+
+
+
+flavorCards.forEach(card => {
+
+
+
+    card.addEventListener(
+        "mouseenter",
+        function(){
+
+
+
+            card.style.boxShadow =
+            "0 35px 70px rgba(61,45,34,.20)";
 
 
 
         }
+    );
 
 
 
-    }
-);
 
 
-}
+    card.addEventListener(
+        "mouseleave",
+        function(){
+
+
+
+            card.style.boxShadow =
+            "none";
+
+
+
+        }
+    );
+
+
+
+});
 
 
 
@@ -459,7 +399,6 @@ orderButtons.forEach(button => {
             if(contact){
 
 
-
                 contact.scrollIntoView({
 
                     behavior:"smooth"
@@ -467,9 +406,7 @@ orderButtons.forEach(button => {
                 });
 
 
-
             }
-
 
 
         }
@@ -510,29 +447,30 @@ learnButtons.forEach(button => {
 
 
             const product =
-            button.closest(
+            this.closest(
                 ".flavor-section"
             );
 
 
 
-            const name =
+            const flavor =
             product.querySelector(
                 "h2"
-            ).innerText;
+            ).textContent;
 
 
 
-            button.innerText =
-            "Selected " + name;
+            this.textContent =
+            flavor + " Selected";
 
 
 
-            setTimeout(function(){
+            setTimeout(()=>{
 
 
-                button.innerText =
+                this.textContent =
                 "Learn More";
+
 
 
             },1500);
@@ -555,8 +493,13 @@ learnButtons.forEach(button => {
 
 
 /* ===================================
-   FLAVOR BACKGROUND TRANSITION
+   PARALLAX EFFECT FOR HERO
 =================================== */
+
+
+const hero =
+document.querySelector(".hero");
+
 
 
 window.addEventListener(
@@ -565,87 +508,18 @@ window.addEventListener(
 
 
 
-        let currentFlavor = "";
+        if(hero){
 
 
 
-        flavorSections.forEach(section => {
+            let scroll =
+            window.scrollY;
 
 
 
-            const sectionPosition =
-            section.getBoundingClientRect();
+            hero.style.backgroundPositionY =
+            scroll * 0.3 + "px";
 
-
-
-            if(
-                sectionPosition.top <= window.innerHeight / 2 &&
-                sectionPosition.bottom >= window.innerHeight / 2
-            ){
-
-
-
-                currentFlavor =
-                section.className;
-
-
-
-            }
-
-
-
-        });
-
-
-
-
-
-
-        if(currentFlavor.includes("classic")){
-
-
-            document.body.style.background =
-            "#FFF1E6";
-
-
-        }
-
-
-        else if(currentFlavor.includes("cheese")){
-
-
-            document.body.style.background =
-            "#FFF4B8";
-
-
-        }
-
-
-        else if(currentFlavor.includes("oreo")){
-
-
-            document.body.style.background =
-            "#D9D9D9";
-
-
-        }
-
-
-        else if(currentFlavor.includes("almond")){
-
-
-            document.body.style.background =
-            "#CFA27D";
-
-
-        }
-
-
-        else{
-
-
-            document.body.style.background =
-            "#F5EFE5";
 
 
         }
@@ -654,8 +528,6 @@ window.addEventListener(
 
     }
 );
-
-
 
 
 
