@@ -1,6 +1,6 @@
 /* ===================================
    OVEN THERAPY
-   PREMIUM SCROLL EXPERIENCE
+   PREMIUM BAKERY WEBSITE
 =================================== */
 
 
@@ -13,9 +13,13 @@
 }
 
 
+
 html{
+
     scroll-behavior:smooth;
+
 }
+
 
 
 body{
@@ -24,11 +28,11 @@ body{
 
     color:#3D2D22;
 
-    font-family:"Open Sans",sans-serif;
+    font-family:"Open Sans", sans-serif;
 
     overflow-x:hidden;
 
-    transition:background 1s ease;
+    transition:.5s ease;
 
 }
 
@@ -44,11 +48,13 @@ h2,
 h3,
 .logo{
 
-    font-family:"Cormorant Garamond",serif;
+    font-family:"Cormorant Garamond", serif;
 
     font-weight:700;
 
 }
+
+
 
 
 
@@ -152,11 +158,11 @@ nav a:hover{
 
     display:flex;
 
+    justify-content:center;
+
     align-items:center;
 
-    justify-content:space-around;
-
-    gap:50px;
+    gap:80px;
 
 }
 
@@ -226,37 +232,34 @@ button:hover{
 
     width:500px;
 
-    animation:float 4s ease-in-out infinite;
+    animation:float 4s infinite ease-in-out;
 
 }
-
 
 
 
 
 @keyframes float{
 
+    0%{
 
-0%{
+        transform:translateY(0);
 
-transform:translateY(0);
-
-}
-
-
-50%{
-
-transform:translateY(-25px);
-
-}
+    }
 
 
-100%{
+    50%{
 
-transform:translateY(0);
+        transform:translateY(-25px);
 
-}
+    }
 
+
+    100%{
+
+        transform:translateY(0);
+
+    }
 
 }
 
@@ -268,7 +271,20 @@ transform:translateY(0);
 
 
 
-/* FLAVOR SECTIONS */
+/* ===================================
+   PRODUCTS
+=================================== */
+
+
+#flavors{
+
+    background:#F5EFE5;
+
+}
+
+
+
+
 
 
 .flavor-section{
@@ -277,19 +293,17 @@ transform:translateY(0);
 
     display:flex;
 
-    justify-content:center;
-
     align-items:center;
 
-    gap:100px;
+    justify-content:center;
 
-    padding:100px 10%;
+    gap:80px;
 
-    transition:
-
-    background 1s ease;
+    padding:100px 8%;
 
 }
+
+
 
 
 
@@ -316,9 +330,7 @@ transform:translateY(0);
 
     max-width:100%;
 
-    transition:
-
-    transform .8s ease;
+    transition:.8s ease;
 
 }
 
@@ -326,7 +338,9 @@ transform:translateY(0);
 
 
 
-/* CONTENT */
+
+
+/* CONTENT CARD */
 
 
 .flavor-content{
@@ -335,45 +349,15 @@ transform:translateY(0);
 
     max-width:550px;
 
+    padding:60px;
+
+    border-radius:45px;
+
     opacity:0;
 
-    transform:translateX(100px);
+    transform:translateX(80px);
 
-    transition:
-
-    opacity .8s ease,
-
-    transform .8s ease;
-
-}
-
-
-
-.flavor-content h2{
-
-    font-size:100px;
-
-}
-
-
-
-.flavor-content p{
-
-    font-size:24px;
-
-    margin:30px 0;
-
-}
-
-
-
-.flavor-content h3{
-
-    font-size:50px;
-
-    color:#A86F4B;
-
-    margin-bottom:30px;
+    transition:.8s ease;
 
 }
 
@@ -381,7 +365,8 @@ transform:translateY(0);
 
 
 
-/* ACTIVE STATE */
+
+/* ACTIVE ANIMATION */
 
 
 .flavor-section.active .flavor-content{
@@ -396,7 +381,7 @@ transform:translateY(0);
 
 .flavor-section.active .flavor-image img{
 
-    transform:scale(1.08);
+    transform:scale(1.1);
 
 }
 
@@ -405,22 +390,47 @@ transform:translateY(0);
 
 
 
-/* ALTERNATING MOVEMENT */
 
 
-.cheese .flavor-content,
+
+/* FLAVOR COLORS */
+
+
+/* Classic - Cream Cheese */
+
+.classic .flavor-content{
+
+    background:#FFF3E4;
+
+}
+
+
+
+/* Cheese - Pastel Yellow */
+
+.cheese .flavor-content{
+
+    background:#FFF1B8;
+
+}
+
+
+
+/* Oreo - Soft Grey */
+
+.oreo .flavor-content{
+
+    background:#E8E8E8;
+
+}
+
+
+
+/* Almond - Light Brown */
+
 .almond .flavor-content{
 
-    transform:translateX(-100px);
-
-}
-
-
-
-.cheese.active .flavor-content,
-.almond.active .flavor-content{
-
-    transform:translateX(0);
+    background:#D2A679;
 
 }
 
@@ -431,44 +441,60 @@ transform:translateY(0);
 
 
 
-/* COLORS */
+/* ALTERNATING POSITIONS */
 
 
-.classic{
-
-    background:#F5EFE5;
-
-}
-
-
-
-.cheese{
-
-    background:#73765B;
-
-    color:#F5EFE5;
-
-}
-
-
-
-.oreo{
-
-    background:#3D2D22;
-
-    color:#F5EFE5;
-
-}
-
-
-
+.cheese,
 .almond{
 
-    background:#A86F4B;
-
-    color:white;
+    flex-direction:row-reverse;
 
 }
+
+
+
+
+
+
+
+
+
+/* PRODUCT TEXT */
+
+
+.flavor-content h2{
+
+    font-size:90px;
+
+    color:#3D2D22;
+
+}
+
+
+
+.flavor-content p{
+
+    font-size:22px;
+
+    margin:25px 0;
+
+}
+
+
+
+.flavor-content h3{
+
+    font-size:50px;
+
+    color:#A86F4B;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
 
 
 
@@ -479,11 +505,11 @@ transform:translateY(0);
 
 .why{
 
+    background:white;
+
     padding:100px 8%;
 
     text-align:center;
-
-    background:#F5EFE5;
 
 }
 
@@ -515,13 +541,13 @@ transform:translateY(0);
 
 .why-card{
 
-    background:white;
+    width:320px;
+
+    background:#F5EFE5;
 
     padding:40px;
 
     border-radius:25px;
-
-    width:300px;
 
     transition:.4s;
 
@@ -553,16 +579,55 @@ transform:translateY(0);
 
 
 
+/* ABOUT */
+
+
+.story{
+
+    padding:100px 10%;
+
+    text-align:center;
+
+}
+
+
+
+.story h2{
+
+    font-size:70px;
+
+}
+
+
+
+.story p{
+
+    max-width:800px;
+
+    margin:30px auto;
+
+    font-size:22px;
+
+}
+
+
+
+
+
+
+
+
+
 /* CONTACT */
 
 
 .contact{
 
+    background:white;
+
     padding:100px 8%;
 
     text-align:center;
-
-    background:white;
 
 }
 
@@ -588,6 +653,8 @@ transform:translateY(0);
 
 
 
+
+
 /* FOOTER */
 
 
@@ -597,9 +664,9 @@ footer{
 
     color:#F5EFE5;
 
-    padding:30px;
-
     text-align:center;
+
+    padding:30px;
 
 }
 
@@ -615,6 +682,7 @@ footer{
 
 
 @media(max-width:900px){
+
 
 
 nav{
@@ -663,40 +731,21 @@ nav ul{
 
 
 
-.flavor-section{
+.flavor-section,
+.cheese,
+.almond{
 
     flex-direction:column;
 
     text-align:center;
 
-    gap:40px;
-
 }
-
-
 
 
 
 .flavor-content{
 
-    transform:translateY(50px);
-
-}
-
-
-
-.cheese .flavor-content,
-.almond .flavor-content{
-
-    transform:translateY(50px);
-
-}
-
-
-
-.flavor-section.active .flavor-content{
-
-    transform:translateY(0);
+    padding:40px 25px;
 
 }
 
@@ -718,7 +767,8 @@ nav ul{
 
 
 
-.why h2{
+.why h2,
+.story h2{
 
     font-size:45px;
 
