@@ -1,559 +1,467 @@
-<!DOCTYPE html>
-<html lang="en">
+/* ===================================
+   OVEN THERAPY
+   PREMIUM WEBSITE INTERACTIONS
+=================================== */
 
-<head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+document.addEventListener("DOMContentLoaded", () => {
 
-    <title>Oven Therapy</title>
 
-    <link rel="stylesheet" href="css/style.css">
 
-</head>
 
+/* ===================================
+   SCROLL REVEAL ANIMATION
+=================================== */
 
-<body>
 
+const flavorSections =
+document.querySelectorAll(".flavor-section");
 
-<!-- NAVIGATION -->
 
-<nav>
+const whyCards =
+document.querySelectorAll(".why-card");
 
-    <div class="logo">
-        🍞 Oven Therapy
-    </div>
 
+const story =
+document.querySelector(".story");
 
-    <ul>
 
-        <li>
-            <a href="#home">Home</a>
-        </li>
+const contact =
+document.querySelector(".contact");
 
-        <li>
-            <a href="#flavors">Products</a>
-        </li>
 
-        <li>
-            <a href="#why">Why Us</a>
-        </li>
 
-        <li>
-            <a href="#about">About</a>
-        </li>
+const animatedElements = [
 
-        <li>
-            <a href="#contact">Contact</a>
-        </li>
+    ...flavorSections,
 
-    </ul>
+    ...whyCards,
 
-</nav>
+    story,
 
+    contact
 
+].filter(Boolean);
 
 
 
-<!-- HERO -->
 
 
-<section class="hero" id="home">
+animatedElements.forEach(element => {
 
+    element.classList.add("hidden");
 
-    <div class="hero-content">
+});
 
 
-        <h1>
-            Oven Therapy
-        </h1>
 
 
-        <p>
-            Freshly baked. Made for comfort.
-        </p>
 
 
-        <button>
-            Order Now
-        </button>
 
+function revealOnScroll(){
 
-    </div>
 
+    const trigger =
+    window.innerHeight * 0.80;
 
 
-    <div class="hero-image">
 
-        <!-- Add your hero image here later -->
+    animatedElements.forEach(element=>{
 
-    </div>
 
+        const position =
+        element.getBoundingClientRect().top;
 
-</section>
 
 
+        if(position < trigger){
 
 
+            element.classList.add("show");
 
 
+        }
 
 
-<!-- PRODUCTS -->
 
+    });
 
-<section id="flavors">
 
 
+}
 
-    <!-- CLASSIC -->
 
 
-    <div class="flavor-section classic">
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
 
 
-        <div class="flavor-image">
 
-            <img src="images/classic.png"
-            alt="Classic Cinnamon Roll">
+revealOnScroll();
 
-        </div>
 
 
 
 
-        <div class="flavor-content">
 
 
-            <h2>
-                Classic
-            </h2>
 
 
-            <p>
+/* ===================================
+   NAVBAR SCROLL EFFECT
+=================================== */
 
-                A soft cinnamon roll baked fresh and
-                topped with our signature cream cheese glaze.
 
-            </p>
+const nav =
+document.querySelector("nav");
 
 
 
+window.addEventListener("scroll",()=>{
 
-            <div class="product-buttons">
 
+    if(window.scrollY > 50){
 
-                <button class="learn-btn">
-                    Learn More
-                </button>
 
+        nav.style.background =
+        "rgba(245,239,229,.98)";
 
-                <button class="order-btn">
-                    Order Now
-                </button>
 
+        nav.style.boxShadow =
+        "0 10px 30px rgba(61,45,34,.15)";
 
-            </div>
 
+    }
 
 
-        </div>
+    else{
 
 
+        nav.style.background =
+        "rgba(245,239,229,.90)";
 
-    </div>
 
+        nav.style.boxShadow =
+        "none";
 
 
+    }
 
 
+});
 
 
-    <!-- CHEESE -->
 
 
-    <div class="flavor-section cheese">
 
 
 
-        <div class="flavor-image">
 
 
-            <img src="images/cheese.png"
-            alt="Cheese Cinnamon Roll">
+/* ===================================
+   HERO IMAGE FLOAT / PARALLAX
+=================================== */
 
 
-        </div>
+const heroImage =
+document.querySelector(".hero-image img");
 
 
 
+window.addEventListener("scroll",()=>{
 
 
-        <div class="flavor-content">
+    if(heroImage){
 
 
-            <h2>
-                Cheese
-            </h2>
+        let movement =
+        window.scrollY * 0.12;
 
 
-            <p>
 
-                A rich buttery cinnamon roll finished
-                with a smooth cheesy topping for a creamy twist.
+        heroImage.style.transform =
+        `translateY(${movement}px)`;
 
-            </p>
 
+    }
 
 
-            <div class="product-buttons">
+});
 
 
-                <button class="learn-btn">
-                    Learn More
-                </button>
 
 
-                <button class="order-btn">
-                    Order Now
-                </button>
 
 
-            </div>
 
 
 
-        </div>
+/* ===================================
+   PRODUCT IMAGE HOVER EFFECT
+=================================== */
 
 
-    </div>
+const productImages =
+document.querySelectorAll(
+    ".flavor-image img"
+);
 
 
 
+productImages.forEach(image=>{
 
 
+    image.addEventListener(
+        "mouseenter",
+        ()=>{
 
 
+            image.style.transform =
+            "scale(1.12) translateY(-15px)";
 
 
-    <!-- OREO -->
+        }
+    );
 
 
-    <div class="flavor-section oreo">
 
 
-        <div class="flavor-image">
+    image.addEventListener(
+        "mouseleave",
+        ()=>{
 
 
-            <img src="images/oreo.png"
-            alt="Oreo Cinnamon Roll">
+            image.style.transform =
+            "scale(1)";
 
 
-        </div>
+        }
+    );
 
 
 
+});
 
 
-        <div class="flavor-content">
 
 
-            <h2>
-                Oreo
-            </h2>
 
 
-            <p>
 
-                A chocolate-inspired cinnamon roll
-                layered with Oreo crumbs and a sweet creamy finish.
 
-            </p>
 
+/* ===================================
+   SMOOTH NAVIGATION
+=================================== */
 
 
+const navLinks =
+document.querySelectorAll(
+    "nav a"
+);
 
-            <div class="product-buttons">
 
 
-                <button class="learn-btn">
-                    Learn More
-                </button>
+navLinks.forEach(link=>{
 
 
-                <button class="order-btn">
-                    Order Now
-                </button>
+    link.addEventListener(
+        "click",
+        function(event){
 
 
-            </div>
+            const target =
+            document.querySelector(
+                this.getAttribute("href")
+            );
 
 
 
+            if(target){
 
-        </div>
 
+                event.preventDefault();
 
-    </div>
 
 
+                target.scrollIntoView({
 
+                    behavior:"smooth"
 
+                });
 
 
+            }
 
 
 
-    <!-- ALMOND -->
+        }
+    );
 
 
-    <div class="flavor-section almond">
+});
 
 
-        <div class="flavor-image">
 
 
-            <img src="images/almond.png"
-            alt="Almond Cinnamon Roll">
 
 
-        </div>
 
 
 
+/* ===================================
+   ORDER BUTTON SCROLL
+=================================== */
 
 
-        <div class="flavor-content">
+const orderButtons =
+document.querySelectorAll(
+    ".order-btn, .hero button"
+);
 
 
-            <h2>
-                Almond
-            </h2>
 
+orderButtons.forEach(button=>{
 
-            <p>
 
-                A delicate cinnamon roll topped with
-                toasted almond slices for a nutty and satisfying bite.
+    button.addEventListener(
+        "click",
+        ()=>{
 
-            </p>
 
+            const contact =
+            document.querySelector(
+                "#contact"
+            );
 
 
 
-            <div class="product-buttons">
+            if(contact){
 
 
-                <button class="learn-btn">
-                    Learn More
-                </button>
+                contact.scrollIntoView({
 
+                    behavior:"smooth"
 
-                <button class="order-btn">
-                    Order Now
-                </button>
+                });
 
 
-            </div>
+            }
 
 
 
+        }
+    );
 
-        </div>
 
+});
 
 
-    </div>
 
 
 
 
-</section>
 
 
 
+/* ===================================
+   LEARN MORE BUTTON
+=================================== */
 
 
+const learnButtons =
+document.querySelectorAll(
+    ".learn-btn"
+);
 
 
 
+learnButtons.forEach(button=>{
 
-<!-- WHY CHOOSE -->
 
+    button.addEventListener(
+        "click",
+        ()=>{
 
-<section class="why" id="why">
 
+            button.innerHTML =
+            "Coming Soon";
 
-    <h2>
-        Why Choose Oven Therapy?
-    </h2>
 
 
+            setTimeout(()=>{
 
-    <div class="why-grid">
 
+                button.innerHTML =
+                "Learn More";
 
 
-        <div class="why-card">
+            },1500);
 
 
-            <h3>
-                🍞 Freshly Baked
-            </h3>
 
+        }
+    );
 
-            <p>
-                Every cinnamon roll is baked fresh
-                in small batches.
-            </p>
 
+});
 
-        </div>
 
 
 
 
 
-        <div class="why-card">
 
 
-            <h3>
-                🥛 Premium Ingredients
-            </h3>
 
+/* ===================================
+   FLAVOR CARD MOUSE EFFECT
+=================================== */
 
-            <p>
-                Made with quality ingredients
-                for a rich and soft texture.
-            </p>
 
+const flavorCards =
+document.querySelectorAll(
+    ".flavor-section"
+);
 
-        </div>
 
 
+flavorCards.forEach(card=>{
 
 
+    card.addEventListener(
+        "mouseenter",
+        ()=>{
 
-        <div class="why-card">
 
+            card.style.transform =
+            "translateY(-10px)";
 
-            <h3>
-                ❤️ Made With Love
-            </h3>
 
+        }
+    );
 
-            <p>
-                Every box is prepared carefully
-                to bring comfort.
-            </p>
 
 
-        </div>
+    card.addEventListener(
+        "mouseleave",
+        ()=>{
 
 
+            card.style.transform =
+            "translateY(0)";
 
-    </div>
 
+        }
+    );
 
-</section>
 
 
+});
 
 
 
-
-
-
-
-<!-- ABOUT -->
-
-
-<section class="story" id="about">
-
-
-    <h2>
-        About Oven Therapy
-    </h2>
-
-
-    <p>
-
-        Oven Therapy creates freshly baked cinnamon rolls
-        made with premium ingredients, rich fillings,
-        and lots of love.
-
-        Every roll is baked fresh to bring comfort
-        and happiness with every bite.
-
-    </p>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- CONTACT -->
-
-
-<section class="contact" id="contact">
-
-
-    <h2>
-        Contact Us
-    </h2>
-
-
-    <p>
-        📍 Panabo City, Davao del Norte
-    </p>
-
-
-    <p>
-        📱 Facebook: Oven Therapy
-    </p>
-
-
-    <p>
-        📧 oventherapybakery@gmail.com
-    </p>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- FOOTER -->
-
-
-<footer>
-
-
-    © 2026 Oven Therapy. All Rights Reserved.
-
-
-</footer>
-
-
-
-
-
-
-<script src="js/script.js"></script>
-
-
-</body>
-
-</html>
+});
