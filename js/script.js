@@ -1,6 +1,6 @@
 /* ===================================
    OVEN THERAPY
-   PREMIUM SCROLL ANIMATION
+   PREMIUM WEBSITE INTERACTIONS
 =================================== */
 
 
@@ -9,41 +9,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/* ===============================
-   FLAVOR SCROLL REVEAL
-================================ */
+/* ===================================
+   SCROLL REVEAL ANIMATION
+=================================== */
 
 
-const flavorSections = document.querySelectorAll(
-    ".flavor-section"
-);
+const flavorSections =
+document.querySelectorAll(".flavor-section");
 
 
-
-function revealFlavor(){
-
-
-    const triggerPoint =
-    window.innerHeight * 0.75;
+const whyCards =
+document.querySelectorAll(".why-card");
 
 
+const story =
+document.querySelector(".story");
 
-    flavorSections.forEach(section => {
 
-
-
-        const sectionTop =
-        section.getBoundingClientRect().top;
+const contact =
+document.querySelector(".contact");
 
 
 
-        if(sectionTop < triggerPoint){
+const animatedElements = [
+
+    ...flavorSections,
+
+    ...whyCards,
+
+    story,
+
+    contact
+
+].filter(Boolean);
 
 
-            section.classList.add("active");
+
+
+
+animatedElements.forEach(element => {
+
+    element.classList.add("hidden");
+
+});
+
+
+
+
+
+
+
+function revealOnScroll(){
+
+
+    const trigger =
+    window.innerHeight * 0.80;
+
+
+
+    animatedElements.forEach(element=>{
+
+
+        const position =
+        element.getBoundingClientRect().top;
+
+
+
+        if(position < trigger){
+
+
+            element.classList.add("show");
 
 
         }
+
 
 
     });
@@ -56,12 +95,12 @@ function revealFlavor(){
 
 window.addEventListener(
     "scroll",
-    revealFlavor
+    revealOnScroll
 );
 
 
 
-revealFlavor();
+revealOnScroll();
 
 
 
@@ -71,9 +110,9 @@ revealFlavor();
 
 
 
-/* ===============================
+/* ===================================
    NAVBAR SCROLL EFFECT
-================================ */
+=================================== */
 
 
 const nav =
@@ -84,18 +123,19 @@ document.querySelector("nav");
 window.addEventListener("scroll",()=>{
 
 
-    if(window.scrollY > 80){
+    if(window.scrollY > 50){
 
 
         nav.style.background =
-        "rgba(245,239,229,0.98)";
+        "rgba(245,239,229,.98)";
 
 
         nav.style.boxShadow =
-        "0 8px 25px rgba(61,45,34,.15)";
+        "0 10px 30px rgba(61,45,34,.15)";
 
 
     }
+
 
     else{
 
@@ -111,7 +151,6 @@ window.addEventListener("scroll",()=>{
     }
 
 
-
 });
 
 
@@ -122,9 +161,9 @@ window.addEventListener("scroll",()=>{
 
 
 
-/* ===============================
-   HERO IMAGE FLOAT MOVEMENT
-================================ */
+/* ===================================
+   HERO IMAGE FLOAT / PARALLAX
+=================================== */
 
 
 const heroImage =
@@ -160,9 +199,9 @@ window.addEventListener("scroll",()=>{
 
 
 
-/* ===============================
-   FLAVOR IMAGE PARALLAX
-================================ */
+/* ===================================
+   PRODUCT IMAGE HOVER EFFECT
+=================================== */
 
 
 const productImages =
@@ -172,42 +211,35 @@ document.querySelectorAll(
 
 
 
-window.addEventListener("scroll",()=>{
+productImages.forEach(image=>{
 
 
-    productImages.forEach(image=>{
-
-
-        const position =
-        image.getBoundingClientRect();
-
-
-
-        const screen =
-        window.innerHeight;
-
-
-
-        if(
-            position.top < screen &&
-            position.bottom > 0
-        ){
-
-
-            let move =
-            (screen - position.top) * 0.05;
-
+    image.addEventListener(
+        "mouseenter",
+        ()=>{
 
 
             image.style.transform =
-            `translateY(${move}px)`;
+            "scale(1.12) translateY(-15px)";
 
 
         }
+    );
 
 
 
-    });
+
+    image.addEventListener(
+        "mouseleave",
+        ()=>{
+
+
+            image.style.transform =
+            "scale(1)";
+
+
+        }
+    );
 
 
 
@@ -221,58 +253,9 @@ window.addEventListener("scroll",()=>{
 
 
 
-/* ===============================
-   BUTTON SMOOTH SCROLL
-================================ */
-
-
-const buttons =
-document.querySelectorAll("button");
-
-
-
-buttons.forEach(button=>{
-
-
-    button.addEventListener("click",()=>{
-
-
-        const products =
-        document.querySelector("#flavors");
-
-
-
-        if(products){
-
-
-            products.scrollIntoView({
-
-                behavior:"smooth"
-
-            });
-
-
-        }
-
-
-
-    });
-
-
-
-});
-
-
-
-
-
-
-
-
-
-/* ===============================
-   NAVIGATION SMOOTH SCROLL
-================================ */
+/* ===================================
+   SMOOTH NAVIGATION
+=================================== */
 
 
 const navLinks =
@@ -287,12 +270,12 @@ navLinks.forEach(link=>{
 
     link.addEventListener(
         "click",
-        (event)=>{
+        function(event){
 
 
             const target =
             document.querySelector(
-                link.getAttribute("href")
+                this.getAttribute("href")
             );
 
 
@@ -311,6 +294,60 @@ navLinks.forEach(link=>{
                 });
 
 
+            }
+
+
+
+        }
+    );
+
+
+});
+
+
+
+
+
+
+
+
+
+/* ===================================
+   ORDER BUTTON SCROLL
+=================================== */
+
+
+const orderButtons =
+document.querySelectorAll(
+    ".order-btn, .hero button"
+);
+
+
+
+orderButtons.forEach(button=>{
+
+
+    button.addEventListener(
+        "click",
+        ()=>{
+
+
+            const contact =
+            document.querySelector(
+                "#contact"
+            );
+
+
+
+            if(contact){
+
+
+                contact.scrollIntoView({
+
+                    behavior:"smooth"
+
+                });
+
 
             }
 
@@ -324,6 +361,106 @@ navLinks.forEach(link=>{
 
 
 
+
+
+
+
+
+
+/* ===================================
+   LEARN MORE BUTTON
+=================================== */
+
+
+const learnButtons =
+document.querySelectorAll(
+    ".learn-btn"
+);
+
+
+
+learnButtons.forEach(button=>{
+
+
+    button.addEventListener(
+        "click",
+        ()=>{
+
+
+            button.innerHTML =
+            "Coming Soon";
+
+
+
+            setTimeout(()=>{
+
+
+                button.innerHTML =
+                "Learn More";
+
+
+            },1500);
+
+
+
+        }
+    );
+
+
+});
+
+
+
+
+
+
+
+
+
+/* ===================================
+   FLAVOR CARD MOUSE EFFECT
+=================================== */
+
+
+const flavorCards =
+document.querySelectorAll(
+    ".flavor-section"
+);
+
+
+
+flavorCards.forEach(card=>{
+
+
+    card.addEventListener(
+        "mouseenter",
+        ()=>{
+
+
+            card.style.transform =
+            "translateY(-10px)";
+
+
+        }
+    );
+
+
+
+    card.addEventListener(
+        "mouseleave",
+        ()=>{
+
+
+            card.style.transform =
+            "translateY(0)";
+
+
+        }
+    );
+
+
+
+});
 
 
 
