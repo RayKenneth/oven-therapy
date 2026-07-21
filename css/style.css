@@ -19,17 +19,11 @@ html{
 
 
 body{
-
     background:#F5EFE5;
-
     color:#3D2D22;
-
     font-family:"Open Sans", sans-serif;
-
     line-height:1.6;
-
 }
-
 
 
 /* HEADINGS */
@@ -38,40 +32,31 @@ h1,
 h2,
 h3,
 .logo{
-
     font-family:"Cormorant Garamond", serif;
-
     font-weight:600;
-
 }
 
 
 
 /* NAVIGATION */
 
-
 nav{
 
     position:sticky;
-
     top:0;
-
     z-index:1000;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     padding:18px 8%;
 
     background:#F5EFE5;
 
-    box-shadow:0 2px 10px rgba(61,45,34,0.12);
+    box-shadow:0 2px 10px rgba(61,45,34,.12);
 
 }
-
 
 
 .logo{
@@ -81,7 +66,6 @@ nav{
     color:#73765B;
 
 }
-
 
 
 nav ul{
@@ -95,7 +79,6 @@ nav ul{
 }
 
 
-
 nav ul li a{
 
     text-decoration:none;
@@ -107,7 +90,6 @@ nav ul li a{
 }
 
 
-
 nav ul li a:hover{
 
     color:#A86F4B;
@@ -116,8 +98,8 @@ nav ul li a:hover{
 
 
 
-/* HERO */
 
+/* HERO */
 
 header{
 
@@ -132,7 +114,6 @@ header{
 }
 
 
-
 header h1{
 
     font-size:72px;
@@ -142,7 +123,6 @@ header h1{
 }
 
 
-
 header p{
 
     font-size:22px;
@@ -150,7 +130,6 @@ header p{
     margin-bottom:35px;
 
 }
-
 
 
 header button{
@@ -174,7 +153,6 @@ header button{
 }
 
 
-
 header button:hover{
 
     background:#3D2D22;
@@ -183,42 +161,45 @@ header button:hover{
 
 
 
-/* PRODUCTS */
 
+/* PRODUCTS */
 
 .products{
 
     padding:80px 8%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    flex-wrap:wrap;
+
+    gap:30px;
 
     text-align:center;
 
 }
 
 
+.products:before{
 
-.products > h2{
+    content:"Our Favorites";
 
-    color:#3D2D22;
+    width:100%;
+
+    display:block;
+
+    font-family:"Cormorant Garamond", serif;
 
     font-size:48px;
 
-    margin-bottom:50px;
+    font-weight:600;
 
-}
+    color:#3D2D22;
 
-
-
-.product-container{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:stretch;
-
-    flex-wrap:wrap;
-
-    gap:30px;
+    margin-bottom:20px;
 
 }
 
@@ -234,7 +215,7 @@ header button:hover{
 
     padding:25px;
 
-    box-shadow:0 8px 20px rgba(61,45,34,0.12);
+    box-shadow:0 8px 20px rgba(61,45,34,.12);
 
     text-align:center;
 
@@ -243,13 +224,11 @@ header button:hover{
 }
 
 
-
 .card:hover{
 
     transform:translateY(-8px);
 
 }
-
 
 
 .card img{
@@ -260,13 +239,14 @@ header button:hover{
 
     object-fit:contain;
 
-    margin-bottom:20px;
+    display:block;
+
+    margin:0 auto 20px;
 
 }
 
 
-
-.card h3{
+.card h2{
 
     font-size:32px;
 
@@ -275,7 +255,6 @@ header button:hover{
     margin-bottom:10px;
 
 }
-
 
 
 .card p{
@@ -287,21 +266,11 @@ header button:hover{
 }
 
 
-
-.card span{
-
-    display:block;
-
-    font-size:28px;
-
-    font-weight:bold;
+.card p:not(:empty){
 
     color:#3D2D22;
 
-    margin-bottom:20px;
-
 }
-
 
 
 .card button{
@@ -321,7 +290,6 @@ header button:hover{
 }
 
 
-
 .card button:hover{
 
     background:#A86F4B;
@@ -331,9 +299,7 @@ header button:hover{
 
 
 
-
 /* WHY CHOOSE */
-
 
 .why{
 
@@ -344,7 +310,6 @@ header button:hover{
     text-align:center;
 
 }
-
 
 
 .why h2{
@@ -358,19 +323,19 @@ header button:hover{
 }
 
 
-
 .features{
 
     display:flex;
 
     justify-content:center;
 
+    align-items:stretch;
+
     gap:30px;
 
     flex-wrap:wrap;
 
 }
-
 
 
 .feature{
@@ -383,8 +348,9 @@ header button:hover{
 
     border-radius:20px;
 
-}
+    text-align:center;
 
+}
 
 
 .feature h3{
@@ -396,7 +362,6 @@ header button:hover{
     margin-bottom:15px;
 
 }
-
 
 
 .feature p{
@@ -411,7 +376,6 @@ header button:hover{
 
 /* ABOUT */
 
-
 #about{
 
     padding:80px 10%;
@@ -419,7 +383,6 @@ header button:hover{
     text-align:center;
 
 }
-
 
 
 #about h2{
@@ -431,7 +394,6 @@ header button:hover{
     margin-bottom:20px;
 
 }
-
 
 
 #about p{
@@ -450,7 +412,6 @@ header button:hover{
 
 /* CONTACT */
 
-
 #contact{
 
     background:#ffffff;
@@ -460,7 +421,6 @@ header button:hover{
     text-align:center;
 
 }
-
 
 
 #contact h2{
@@ -474,7 +434,6 @@ header button:hover{
 }
 
 
-
 #contact p{
 
     margin:10px;
@@ -486,7 +445,6 @@ header button:hover{
 
 
 /* FOOTER */
-
 
 footer{
 
@@ -506,7 +464,6 @@ footer{
 
 /* MOBILE */
 
-
 @media(max-width:768px){
 
 
@@ -519,7 +476,6 @@ nav{
 }
 
 
-
 nav ul{
 
     flex-direction:column;
@@ -529,7 +485,6 @@ nav ul{
 }
 
 
-
 header h1{
 
     font-size:48px;
@@ -537,8 +492,7 @@ header h1{
 }
 
 
-
-.products > h2,
+.products:before,
 .why h2,
 #about h2,
 #contact h2{
@@ -546,7 +500,6 @@ header h1{
     font-size:36px;
 
 }
-
 
 
 .card{
@@ -558,7 +511,6 @@ header h1{
 }
 
 
-
 .features{
 
     flex-direction:column;
@@ -566,6 +518,5 @@ header h1{
     align-items:center;
 
 }
-
 
 }
