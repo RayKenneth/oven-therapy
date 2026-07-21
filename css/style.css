@@ -1,5 +1,6 @@
 /* ===================================
-   OVEN THERAPY - STYLE.CSS
+   OVEN THERAPY
+   PREMIUM BAKERY STYLE
 =================================== */
 
 
@@ -18,14 +19,18 @@ html{
 
 
 body{
+
     background:#F5EFE5;
+
     color:#3D2D22;
+
     font-family:"Open Sans", sans-serif;
-    line-height:1.6;
+
+    overflow-x:hidden;
+
 }
 
 
-/* TYPOGRAPHY */
 
 h1,
 h2,
@@ -33,9 +38,11 @@ h3,
 .logo{
 
     font-family:"Cormorant Garamond", serif;
-    font-weight:600;
+
+    font-weight:700;
 
 }
+
 
 
 
@@ -44,50 +51,65 @@ h3,
 
 nav{
 
-    position:sticky;
+    position:fixed;
+
     top:0;
+
+    width:100%;
+
     z-index:1000;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
-    padding:18px 8%;
+    padding:20px 8%;
 
-    background:#F5EFE5;
+    background:rgba(245,239,229,.9);
 
-    box-shadow:0 2px 10px rgba(61,45,34,.12);
+    backdrop-filter:blur(10px);
 
 }
 
 
+
 .logo{
 
-    font-size:34px;
+    font-size:38px;
+
     color:#73765B;
 
 }
 
 
+
 nav ul{
 
     display:flex;
+
+    gap:35px;
+
     list-style:none;
-    gap:30px;
 
 }
 
 
-nav ul li a{
+
+nav a{
 
     text-decoration:none;
+
     color:#3D2D22;
+
     font-weight:600;
 
 }
 
 
-nav ul li a:hover{
+
+nav a:hover{
 
     color:#A86F4B;
 
@@ -100,59 +122,77 @@ nav ul li a:hover{
 /* HERO */
 
 
-header{
+.hero{
+
+    min-height:100vh;
+
+    padding:120px 8% 80px;
 
     background:#73765B;
 
     color:#F5EFE5;
 
-    text-align:center;
+    display:flex;
 
-    padding:100px 20px;
+    align-items:center;
 
-}
+    justify-content:space-between;
 
-
-header h1{
-
-    font-size:72px;
-
-    margin-bottom:15px;
+    gap:50px;
 
 }
 
 
-header p{
 
-    font-size:22px;
+.hero-text{
 
-    margin-bottom:35px;
+    max-width:600px;
 
 }
 
 
-header button{
+
+.hero h1{
+
+    font-size:100px;
+
+    line-height:1;
+
+}
+
+
+
+.hero p{
+
+    font-size:28px;
+
+    margin:30px 0;
+
+}
+
+
+
+.hero button{
 
     background:#A86F4B;
 
-    color:#F5EFE5;
+    color:white;
 
     border:none;
 
-    padding:15px 45px;
+    padding:18px 45px;
 
-    border-radius:40px;
+    border-radius:50px;
 
-    font-size:17px;
-
-    font-weight:600;
+    font-size:18px;
 
     cursor:pointer;
 
 }
 
 
-header button:hover{
+
+.hero button:hover{
 
     background:#3D2D22;
 
@@ -160,137 +200,164 @@ header button:hover{
 
 
 
+.hero-image img{
 
+    width:500px;
 
-/* PRODUCTS */
-
-
-.products{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:flex-start;
-
-    flex-wrap:wrap;
-
-    gap:30px;
-
-    padding:80px 8%;
+    animation:float 4s ease-in-out infinite;
 
 }
 
 
 
-.card{
 
-    width:240px;
+@keyframes float{
 
-    background:#ffffff;
 
-    border-radius:18px;
+0%{
 
-    padding:25px;
+transform:translateY(0);
 
-    box-shadow:0 8px 20px rgba(61,45,34,.12);
+}
+
+
+50%{
+
+transform:translateY(-25px);
+
+}
+
+
+100%{
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+
+
+
+/* FLAVORS */
+
+
+.flavors{
+
+    padding:100px 8%;
 
     text-align:center;
 
-    transition:.3s;
+    background:#F5EFE5;
 
 }
 
 
 
-.card:hover{
+.flavors h2{
 
-    transform:translateY(-8px);
+    font-size:70px;
+
+    margin-bottom:60px;
 
 }
 
 
 
-.card img{
+.flavor-grid{
 
-    width:140px;
+    display:grid;
 
-    height:140px;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+}
+
+
+
+.flavor-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    transition:.4s;
+
+}
+
+
+
+.flavor-card:hover{
+
+    transform:translateY(-15px);
+
+}
+
+
+
+.flavor-card img{
+
+    width:180px;
+
+    height:180px;
 
     object-fit:contain;
 
-    display:block;
-
-    margin:10px auto 20px;
-
 }
 
 
 
-.card h2{
+.flavor-card h3{
 
-    font-size:32px;
+    font-size:38px;
 
     color:#73765B;
 
-    margin-bottom:10px;
+}
+
+
+
+.flavor-card p{
+
+    margin:15px 0;
 
 }
 
 
 
-.card p{
+.flavor-card span{
 
-    font-size:32px;
+    font-size:30px;
 
-    font-weight:700;
+    font-weight:bold;
 
-    color:#3D2D22;
-
-    margin-bottom:20px;
+    color:#A86F4B;
 
 }
 
 
 
-.card button{
+
+
+
+
+/* WHY SECTION */
+
+
+.why{
 
     background:#73765B;
 
     color:#F5EFE5;
 
-    border:none;
-
-    padding:12px 35px;
-
-    border-radius:30px;
-
-    cursor:pointer;
-
-    font-size:16px;
-
-}
-
-
-
-.card button:hover{
-
-    background:#A86F4B;
-
-}
-
-
-
-
-
-/* WHY CHOOSE */
-
-
-.why{
-
-    background:#ffffff;
-
-    padding:80px 8%;
+    padding:100px 8%;
 
     text-align:center;
 
@@ -300,102 +367,140 @@ header button:hover{
 
 .why h2{
 
-    font-size:48px;
+    font-size:70px;
 
-    color:#3D2D22;
-
-    margin-bottom:50px;
+    margin-bottom:60px;
 
 }
 
 
 
-.features{
+.why-grid{
 
     display:flex;
 
     justify-content:center;
 
-    align-items:stretch;
-
     gap:30px;
 
-    flex-wrap:wrap;
-
 }
 
 
 
-.feature{
-
-    width:300px;
+.why-card{
 
     background:#F5EFE5;
-
-    padding:35px;
-
-    border-radius:20px;
-
-    text-align:center;
-
-}
-
-
-
-.feature h3{
-
-    font-size:30px;
-
-    color:#73765B;
-
-    margin-bottom:15px;
-
-}
-
-
-
-.feature p{
-
-    font-size:16px;
-
-}
-
-
-
-
-
-/* ABOUT */
-
-
-#about{
-
-    background:#F5EFE5;
-
-    padding:80px 10%;
-
-    text-align:center;
-
-}
-
-
-
-#about h2{
-
-    font-size:48px;
 
     color:#3D2D22;
 
-    margin-bottom:20px;
+    padding:40px;
+
+    border-radius:25px;
+
+    max-width:330px;
 
 }
 
 
 
-#about p{
+.why-card h3{
 
-    max-width:850px;
+    color:#A86F4B;
 
-    margin:auto;
+    font-size:35px;
+
+}
+
+
+
+
+
+
+/* STORY */
+
+
+.story{
+
+    min-height:70vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:80px;
+
+    background:#F5EFE5;
+
+}
+
+
+
+.story h2{
+
+    font-size:70px;
+
+}
+
+
+
+.story p{
+
+    max-width:700px;
+
+    margin:30px auto;
+
+    font-size:22px;
+
+}
+
+
+
+
+
+
+
+/* ORDER CTA */
+
+
+.order{
+
+    background:#A86F4B;
+
+    color:white;
+
+    padding:80px;
+
+    text-align:center;
+
+}
+
+
+
+.order h2{
+
+    font-size:60px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.order button{
+
+    padding:18px 50px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#F5EFE5;
+
+    color:#3D2D22;
 
     font-size:18px;
 
@@ -405,14 +510,14 @@ header button:hover{
 
 
 
+
+
 /* CONTACT */
 
 
-#contact{
+.contact{
 
-    background:#ffffff;
-
-    padding:80px 10%;
+    padding:80px;
 
     text-align:center;
 
@@ -420,23 +525,13 @@ header button:hover{
 
 
 
-#contact h2{
+.contact h2{
 
-    font-size:48px;
-
-    color:#3D2D22;
-
-    margin-bottom:20px;
+    font-size:55px;
 
 }
 
 
-
-#contact p{
-
-    margin:10px 0;
-
-}
 
 
 
@@ -447,15 +542,17 @@ header button:hover{
 
 footer{
 
-    background:#73765B;
+    background:#3D2D22;
 
     color:#F5EFE5;
 
     text-align:center;
 
-    padding:25px;
+    padding:30px;
 
 }
+
+
 
 
 
@@ -464,20 +561,26 @@ footer{
 /* MOBILE */
 
 
-@media(max-width:768px){
+@media(max-width:900px){
 
 
 nav{
 
     flex-direction:column;
 
-    gap:15px;
-
 }
 
 
 
 nav ul{
+
+    margin-top:15px;
+
+}
+
+
+
+.hero{
 
     flex-direction:column;
 
@@ -487,15 +590,31 @@ nav ul{
 
 
 
-header h1{
+.hero h1{
 
-    font-size:48px;
+    font-size:60px;
 
 }
 
 
 
-.products{
+.hero-image img{
+
+    width:300px;
+
+}
+
+
+
+.flavor-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.why-grid{
 
     flex-direction:column;
 
@@ -505,31 +624,10 @@ header h1{
 
 
 
-.card{
+.story h2,
+.order h2{
 
-    width:90%;
-
-    max-width:320px;
-
-}
-
-
-
-.features{
-
-    flex-direction:column;
-
-    align-items:center;
-
-}
-
-
-
-.why h2,
-#about h2,
-#contact h2{
-
-    font-size:36px;
+    font-size:45px;
 
 }
 
