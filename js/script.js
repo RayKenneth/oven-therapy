@@ -1,6 +1,6 @@
 /* ===================================
    OVEN THERAPY
-   PREMIUM WEBSITE SCRIPT
+   MOBILE TOUCH EFFECT + SCROLL
 =================================== */
 
 
@@ -8,20 +8,18 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
+/* ==============================
+   SCROLL REVEAL
+============================== */
 
 
-/* ===================================
-   SCROLL REVEAL ANIMATION
-=================================== */
-
-
-const animatedElements = document.querySelectorAll(
+const elements = document.querySelectorAll(
     ".flavor-section, .why-card, .story, .contact"
 );
 
 
 
-animatedElements.forEach(element => {
+elements.forEach(element=>{
 
     element.classList.add("hidden");
 
@@ -30,152 +28,110 @@ animatedElements.forEach(element => {
 
 
 
-
-function revealOnScroll(){
-
-
-    const triggerPoint =
-    window.innerHeight * 0.85;
+const observer = new IntersectionObserver(
+(entries)=>{
 
 
-
-    animatedElements.forEach(element => {
-
+entries.forEach(entry=>{
 
 
-        const elementTop =
-        element.getBoundingClientRect().top;
+    if(entry.isIntersecting){
+
+        entry.target.classList.add("show");
+
+    }
+
+
+});
+
+
+},
+{
+    threshold:0.15
+}
+);
 
 
 
-        if(elementTop < triggerPoint){
+elements.forEach(element=>{
+
+    observer.observe(element);
+
+});
 
 
-            element.classList.add("show");
 
 
-        }
 
 
+
+/* ==============================
+   NAVBAR SHADOW
+============================== */
+
+
+const nav = document.querySelector("nav");
+
+
+
+window.addEventListener("scroll",()=>{
+
+
+    if(window.scrollY > 50){
+
+        nav.classList.add("scrolled");
+
+    }
+    else{
+
+        nav.classList.remove("scrolled");
+
+    }
+
+
+});
+
+
+
+
+
+
+
+/* ==============================
+   SMOOTH NAVIGATION
+============================== */
+
+
+document.querySelectorAll("nav a")
+.forEach(link=>{
+
+
+link.addEventListener("click",function(e){
+
+
+const target =
+document.querySelector(
+this.getAttribute("href")
+);
+
+
+
+if(target){
+
+    e.preventDefault();
+
+
+    target.scrollIntoView({
+
+        behavior:"smooth"
 
     });
 
-
-
 }
 
 
 
-window.addEventListener(
-    "scroll",
-    revealOnScroll
-);
-
-
-
-revealOnScroll();
-
-
-
-
-
-
-
-
-
-/* ===================================
-   NAVBAR SCROLL EFFECT
-=================================== */
-
-
-const nav =
-document.querySelector("nav");
-
-
-
-window.addEventListener(
-    "scroll",
-    function(){
-
-
-        if(window.scrollY > 50){
-
-
-            nav.classList.add("scrolled");
-
-
-        }
-
-        else{
-
-
-            nav.classList.remove("scrolled");
-
-
-        }
-
-
-    }
-);
-
-
-
-
-
-
-
-
-
-/* ===================================
-   SMOOTH NAVIGATION
-=================================== */
-
-
-const navLinks =
-document.querySelectorAll(
-    "nav a"
-);
-
-
-
-navLinks.forEach(link => {
-
-
-
-    link.addEventListener(
-        "click",
-        function(event){
-
-
-
-            const target =
-            document.querySelector(
-                this.getAttribute("href")
-            );
-
-
-
-            if(target){
-
-
-                event.preventDefault();
-
-
-
-                target.scrollIntoView({
-
-                    behavior:"smooth"
-
-                });
-
-
-            }
-
-
-
-        }
-    );
-
+});
 
 
 });
@@ -187,51 +143,32 @@ navLinks.forEach(link => {
 
 
 
-
-/* ===================================
+/* ==============================
    HERO ORDER BUTTON
-=================================== */
+============================== */
 
 
-const heroButton =
-document.querySelector(
-    ".hero button"
-);
-
-
-
-if(heroButton){
-
-
-    heroButton.addEventListener(
-        "click",
-        function(){
+const orderButton =
+document.querySelector(".hero button");
 
 
 
-            const products =
-            document.querySelector(
-                "#flavors"
-            );
+if(orderButton){
 
 
-
-            if(products){
-
-
-                products.scrollIntoView({
-
-                    behavior:"smooth"
-
-                });
+orderButton.addEventListener("click",()=>{
 
 
-            }
+document
+.querySelector("#flavors")
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
 
 
-
-        }
-    );
+});
 
 
 }
@@ -243,58 +180,37 @@ if(heroButton){
 
 
 
+/* ==============================
+   MOBILE HOLD EFFECT
+============================== */
 
-/* ===================================
-   MOBILE PRODUCT TOUCH EFFECT
-=================================== */
 
-
-const flavorSections =
+const products =
 document.querySelectorAll(
-    ".flavor-section"
+".flavor-section"
 );
 
 
 
-flavorSections.forEach(section => {
+products.forEach(product=>{
+
+
+let timer;
 
 
 
-    section.addEventListener(
-        "touchstart",
-        function(){
+product.addEventListener(
+"touchstart",
+function(){
 
 
-
-            this.classList.add("active");
-
+timer = setTimeout(()=>{
 
 
-        }
-    );
+this.classList.add("active");
 
 
-
-
-
-    section.addEventListener(
-        "touchend",
-        function(){
-
-
-
-            setTimeout(()=>{
-
-
-                this.classList.remove("active");
-
-
-            },700);
-
-
-
-        }
-    );
+},150);
 
 
 
@@ -304,32 +220,38 @@ flavorSections.forEach(section => {
 
 
 
+product.addEventListener(
+"touchend",
+function(){
+
+
+clearTimeout(timer);
+
+
+this.classList.remove("active");
+
+
+});
 
 
 
 
-/* ===================================
-   REMOVE ACTIVE WHEN SCROLLING
-=================================== */
+
+product.addEventListener(
+"touchmove",
+function(){
 
 
-window.addEventListener(
-    "scroll",
-    ()=>{
+clearTimeout(timer);
 
 
-        flavorSections.forEach(section=>{
+this.classList.remove("active");
 
 
-            section.classList.remove("active");
+});
 
 
-        });
-
-
-
-    }
-);
+});
 
 
 
