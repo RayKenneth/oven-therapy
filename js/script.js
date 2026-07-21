@@ -1,10 +1,12 @@
 /* ===================================
    OVEN THERAPY
-   PREMIUM WEBSITE INTERACTIONS
+   PREMIUM WEBSITE JAVASCRIPT
 =================================== */
 
 
 document.addEventListener("DOMContentLoaded", function(){
+
+
 
 
 
@@ -13,13 +15,13 @@ document.addEventListener("DOMContentLoaded", function(){
 =================================== */
 
 
-const animatedElements = document.querySelectorAll(
+const revealElements = document.querySelectorAll(
     ".flavor-section, .why-card, .story, .contact"
 );
 
 
 
-animatedElements.forEach(element => {
+revealElements.forEach(element => {
 
     element.classList.add("hidden");
 
@@ -32,12 +34,13 @@ animatedElements.forEach(element => {
 function revealOnScroll(){
 
 
-    const triggerPoint =
+    const trigger =
     window.innerHeight * 0.85;
 
 
 
-    animatedElements.forEach(element => {
+    revealElements.forEach(element => {
+
 
 
         const elementTop =
@@ -45,7 +48,7 @@ function revealOnScroll(){
 
 
 
-        if(elementTop < triggerPoint){
+        if(elementTop < trigger){
 
 
             element.classList.add("show");
@@ -106,7 +109,7 @@ window.addEventListener(
 
 
             nav.style.boxShadow =
-            "0 8px 25px rgba(61,45,34,.15)";
+            "0 10px 30px rgba(61,45,34,.18)";
 
 
 
@@ -159,7 +162,6 @@ window.addEventListener(
         if(heroImage){
 
 
-
             let movement =
             window.scrollY * 0.12;
 
@@ -186,7 +188,7 @@ window.addEventListener(
 
 
 /* ===================================
-   PRODUCT IMAGE HOVER
+   PRODUCT IMAGE FLOAT EFFECT
 =================================== */
 
 
@@ -208,12 +210,13 @@ productImages.forEach(image => {
 
 
             image.style.transform =
-            "scale(1.12) translateY(-15px)";
+            "scale(1.08) translateY(-15px)";
 
 
 
         }
     );
+
 
 
 
@@ -244,29 +247,29 @@ productImages.forEach(image => {
 
 
 /* ===================================
-   FLAVOR CARD HOVER EFFECT
+   PRODUCT CARD HOVER EFFECT
 =================================== */
 
 
-const flavorCards =
+const flavorSections =
 document.querySelectorAll(
     ".flavor-section"
 );
 
 
 
-flavorCards.forEach(card => {
+flavorSections.forEach(section => {
 
 
 
-    card.addEventListener(
+    section.addEventListener(
         "mouseenter",
         function(){
 
 
 
-            card.style.boxShadow =
-            "0 30px 60px rgba(61,45,34,.20)";
+            section.style.boxShadow =
+            "0 30px 60px rgba(61,45,34,.25)";
 
 
 
@@ -276,13 +279,13 @@ flavorCards.forEach(card => {
 
 
 
-    card.addEventListener(
+    section.addEventListener(
         "mouseleave",
         function(){
 
 
 
-            card.style.boxShadow =
+            section.style.boxShadow =
             "0 20px 40px rgba(61,45,34,.12)";
 
 
@@ -303,7 +306,7 @@ flavorCards.forEach(card => {
 
 
 /* ===================================
-   NAVIGATION SMOOTH SCROLL
+   SMOOTH NAVIGATION
 =================================== */
 
 
@@ -381,39 +384,37 @@ document.querySelector(
 if(heroButton){
 
 
-
-    heroButton.addEventListener(
-        "click",
-        function(){
-
-
-
-            const flavors =
-            document.querySelector(
-                "#flavors"
-            );
+heroButton.addEventListener(
+    "click",
+    function(){
 
 
 
-            if(flavors){
+        const products =
+        document.querySelector(
+            "#flavors"
+        );
 
 
 
-                flavors.scrollIntoView({
-
-                    behavior:"smooth"
-
-                });
+        if(products){
 
 
 
-            }
+            products.scrollIntoView({
+
+                behavior:"smooth"
+
+            });
 
 
 
         }
-    );
 
+
+
+    }
+);
 
 
 }
@@ -427,7 +428,7 @@ if(heroButton){
 
 
 /* ===================================
-   PRODUCT ORDER BUTTONS
+   ORDER BUTTONS
 =================================== */
 
 
@@ -487,7 +488,7 @@ orderButtons.forEach(button => {
 
 
 /* ===================================
-   LEARN MORE BUTTONS
+   LEARN MORE BUTTON
 =================================== */
 
 
@@ -508,7 +509,7 @@ learnButtons.forEach(button => {
 
 
 
-            const card =
+            const product =
             button.closest(
                 ".flavor-section"
             );
@@ -516,16 +517,25 @@ learnButtons.forEach(button => {
 
 
             const name =
-            card.querySelector(
+            product.querySelector(
                 "h2"
             ).innerText;
 
 
 
-            alert(
-                name +
-                " cinnamon roll is freshly baked with premium ingredients."
-            );
+            button.innerText =
+            "Selected " + name;
+
+
+
+            setTimeout(function(){
+
+
+                button.innerText =
+                "Learn More";
+
+
+            },1500);
 
 
 
@@ -545,16 +555,8 @@ learnButtons.forEach(button => {
 
 
 /* ===================================
-   ACTIVE FLAVOR DETECTION
-   CHANGES BODY MOOD WHILE SCROLLING
+   FLAVOR BACKGROUND TRANSITION
 =================================== */
-
-
-const flavorSections =
-document.querySelectorAll(
-    ".flavor-section"
-);
-
 
 
 window.addEventListener(
@@ -563,7 +565,7 @@ window.addEventListener(
 
 
 
-        let currentSection = "";
+        let currentFlavor = "";
 
 
 
@@ -571,18 +573,19 @@ window.addEventListener(
 
 
 
-            const position =
+            const sectionPosition =
             section.getBoundingClientRect();
 
 
 
             if(
-                position.top <= window.innerHeight / 2 &&
-                position.bottom >= window.innerHeight / 2
+                sectionPosition.top <= window.innerHeight / 2 &&
+                sectionPosition.bottom >= window.innerHeight / 2
             ){
 
 
-                currentSection =
+
+                currentFlavor =
                 section.className;
 
 
@@ -596,7 +599,9 @@ window.addEventListener(
 
 
 
-        if(currentSection.includes("classic")){
+
+
+        if(currentFlavor.includes("classic")){
 
 
             document.body.style.background =
@@ -606,7 +611,7 @@ window.addEventListener(
         }
 
 
-        else if(currentSection.includes("cheese")){
+        else if(currentFlavor.includes("cheese")){
 
 
             document.body.style.background =
@@ -616,7 +621,7 @@ window.addEventListener(
         }
 
 
-        else if(currentSection.includes("oreo")){
+        else if(currentFlavor.includes("oreo")){
 
 
             document.body.style.background =
@@ -626,7 +631,7 @@ window.addEventListener(
         }
 
 
-        else if(currentSection.includes("almond")){
+        else if(currentFlavor.includes("almond")){
 
 
             document.body.style.background =
@@ -634,7 +639,6 @@ window.addEventListener(
 
 
         }
-
 
 
         else{
@@ -648,9 +652,9 @@ window.addEventListener(
 
 
 
-
     }
 );
+
 
 
 
