@@ -1,114 +1,53 @@
-/* ===================================
-   OVEN THERAPY
-   SCROLL ANIMATION
-=================================== */
+const sections = document.querySelectorAll(".flavor-section");
 
 
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("scroll",()=>{
 
 
-    const animatedElements = document.querySelectorAll(
-        ".flavor-card, .why-card, .story, .order, .contact"
-    );
+sections.forEach(section=>{
 
 
-    animatedElements.forEach(element => {
+const position =
+section.getBoundingClientRect().top;
 
-        element.classList.add("hidden");
 
-    });
+if(position < window.innerHeight * .65){
 
+section.classList.add("active");
 
 
-    function reveal(){
+}
 
-        const trigger = window.innerHeight * 0.85;
 
+});
 
-        animatedElements.forEach(element => {
 
+});
 
-            const position =
-            element.getBoundingClientRect().top;
 
 
-            if(position < trigger){
 
-                element.classList.add("show");
 
-            }
+// Order buttons
 
 
-        });
+document.querySelectorAll("button")
+.forEach(button=>{
 
 
-    }
+button.addEventListener("click",()=>{
 
 
+document
+.getElementById("flavors")
+.scrollIntoView({
 
-    window.addEventListener("scroll", reveal);
+behavior:"smooth"
 
+});
 
-    reveal();
 
-
-
-
-
-    // NAVBAR EFFECT
-
-    const nav = document.querySelector("nav");
-
-
-    window.addEventListener("scroll",()=>{
-
-
-        if(window.scrollY > 50){
-
-            nav.classList.add("scrolled");
-
-        }
-
-        else{
-
-            nav.classList.remove("scrolled");
-
-        }
-
-
-    });
-
-
-
-
-
-
-    // HERO IMAGE PARALLAX
-
-
-    const heroImage =
-    document.querySelector(".hero-image img");
-
-
-    window.addEventListener("scroll",()=>{
-
-
-        if(heroImage){
-
-
-            let movement =
-            window.scrollY * 0.15;
-
-
-            heroImage.style.transform =
-            `translateY(${movement}px)`;
-
-
-        }
-
-
-    });
-
+});
 
 
 });
