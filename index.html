@@ -9,13 +9,19 @@
 <title>Oven Therapy</title>
 
 
+<!-- Fonts -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
 
+
+<!-- CSS -->
+
 <link rel="stylesheet" href="css/style.css">
+
 
 </head>
 
@@ -24,21 +30,54 @@
 <body>
 
 
+
+
+<!-- NAVIGATION -->
+
+
 <nav>
 
+
 <div class="logo">
+
 Oven Therapy
+
 </div>
+
 
 
 <ul>
 
-<li><a href="#home">Home</a></li>
-<li><a href="#flavors">Flavors</a></li>
-<li><a href="#why">Why Us</a></li>
-<li><a href="#contact">Contact</a></li>
+<li>
+<a href="#home">
+Home
+</a>
+</li>
+
+
+<li>
+<a href="#flavors">
+Flavors
+</a>
+</li>
+
+
+<li>
+<a href="#why">
+Why Us
+</a>
+</li>
+
+
+<li>
+<a href="#contact">
+Contact
+</a>
+</li>
+
 
 </ul>
+
 
 </nav>
 
@@ -46,7 +85,11 @@ Oven Therapy
 
 
 
+
+
+
 <!-- HERO -->
+
 
 <section id="home" class="hero">
 
@@ -64,23 +107,32 @@ Freshly baked. Made for comfort.
 </p>
 
 
+
 <button>
 Order Now
 </button>
 
 
+
 </div>
+
+
 
 
 
 <div class="hero-image">
 
-<img src="images/classic.png">
+
+<img src="images/classic.png" alt="Classic Cinnamon Roll">
+
 
 </div>
 
 
+
 </section>
+
+
 
 
 
@@ -95,18 +147,29 @@ Order Now
 
 
 
-<div class="flavor-section classic">
+
+
+<!-- CLASSIC -->
+
+
+<section 
+class="flavor-section classic"
+data-color="#F5EFE5">
 
 
 <div class="flavor-image">
 
-<img src="images/classic.png">
+
+<img src="images/classic.png" alt="Classic Cinnamon Roll">
+
 
 </div>
 
 
 
+
 <div class="flavor-content">
+
 
 <h2>
 Classic
@@ -118,151 +181,16 @@ Soft cinnamon roll topped with our signature glaze.
 </p>
 
 
+
 <h3>
 ₱60
 </h3>
 
 
-<button>
-Order Now
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="flavor-section cheese">
-
-
-<div class="flavor-content">
-
-
-<h2>
-Cheese
-</h2>
-
-
-<p>
-Sweet cinnamon roll finished with creamy cheese topping.
-</p>
-
-
-<h3>
-₱70
-</h3>
-
 
 <button>
 Order Now
 </button>
-
-
-</div>
-
-
-
-<div class="flavor-image">
-
-<img src="images/cheese.png">
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="flavor-section oreo">
-
-
-<div class="flavor-image">
-
-<img src="images/oreo.png">
-
-</div>
-
-
-<div class="flavor-content">
-
-
-<h2>
-Oreo
-</h2>
-
-
-<p>
-Chocolate Oreo flavor with creamy goodness.
-</p>
-
-
-<h3>
-₱70
-</h3>
-
-
-<button>
-Order Now
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="flavor-section almond">
-
-
-<div class="flavor-content">
-
-
-<h2>
-Almond
-</h2>
-
-
-<p>
-Premium almond topping with a satisfying crunch.
-</p>
-
-
-<h3>
-₱70
-</h3>
-
-
-<button>
-Order Now
-</button>
-
-
-</div>
-
-
-
-<div class="flavor-image">
-
-<img src="images/almond.png">
-
-</div>
 
 
 </div>
@@ -279,7 +207,202 @@ Order Now
 
 
 
-<!-- WHY -->
+<!-- CHEESE -->
+
+
+<section 
+class="flavor-section cheese"
+data-color="#73765B">
+
+
+
+<div class="flavor-content">
+
+
+<h2>
+Cheese
+</h2>
+
+
+
+<p>
+Sweet cinnamon roll finished with creamy cheese topping.
+</p>
+
+
+
+<h3>
+₱70
+</h3>
+
+
+
+<button>
+Order Now
+</button>
+
+
+
+</div>
+
+
+
+
+
+<div class="flavor-image">
+
+
+<img src="images/cheese.png" alt="Cheese Cinnamon Roll">
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- OREO -->
+
+
+<section 
+class="flavor-section oreo"
+data-color="#3D2D22">
+
+
+
+<div class="flavor-image">
+
+
+<img src="images/oreo.png" alt="Oreo Cinnamon Roll">
+
+
+</div>
+
+
+
+
+
+<div class="flavor-content">
+
+
+<h2>
+Oreo
+</h2>
+
+
+
+<p>
+Chocolate Oreo topping with creamy goodness.
+</p>
+
+
+
+<h3>
+₱70
+</h3>
+
+
+
+<button>
+Order Now
+</button>
+
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ALMOND -->
+
+
+<section 
+class="flavor-section almond"
+data-color="#A86F4B">
+
+
+
+<div class="flavor-content">
+
+
+<h2>
+Almond
+</h2>
+
+
+
+<p>
+Premium almond topping with a satisfying crunch.
+</p>
+
+
+
+<h3>
+₱70
+</h3>
+
+
+
+<button>
+Order Now
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="flavor-image">
+
+
+<img src="images/almond.png" alt="Almond Cinnamon Roll">
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- WHY CHOOSE -->
 
 
 <section id="why" class="why">
@@ -290,10 +413,12 @@ Why Choose Oven Therapy?
 </h2>
 
 
+
 <div class="why-grid">
 
 
-<div>
+
+<div class="why-card">
 
 <h3>
 🍞 Freshly Baked
@@ -307,31 +432,37 @@ Made fresh in small batches.
 
 
 
-<div>
+
+
+<div class="why-card">
 
 <h3>
 ✨ Premium Ingredients
 </h3>
 
 <p>
-Only quality ingredients.
+Quality ingredients in every roll.
 </p>
 
 </div>
 
 
 
-<div>
+
+
+<div class="why-card">
 
 <h3>
 ❤️ Made With Love
 </h3>
 
 <p>
-Created for comfort.
+Prepared carefully for every customer.
 </p>
 
 </div>
+
+
 
 
 </div>
@@ -373,10 +504,18 @@ Contact Us
 </p>
 
 
+
 </section>
 
 
 
+
+
+
+
+
+
+<!-- FOOTER -->
 
 
 <footer>
@@ -388,9 +527,13 @@ Contact Us
 
 
 
+
+
+
 <script src="js/script.js"></script>
 
 
 </body>
+
 
 </html>
