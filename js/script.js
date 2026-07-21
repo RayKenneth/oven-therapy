@@ -1,8 +1,7 @@
 /* ===================================
    OVEN THERAPY
-   SCROLL EXPERIENCE JAVASCRIPT
+   PREMIUM SCROLL ANIMATION
 =================================== */
-
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -10,10 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-// ===============================
-// FLAVOR SCROLL ACTIVATION
-// ===============================
+/* ===============================
+   FLAVOR SCROLL REVEAL
+================================ */
 
 
 const flavorSections = document.querySelectorAll(
@@ -22,58 +20,30 @@ const flavorSections = document.querySelectorAll(
 
 
 
-function activateFlavor(){
+function revealFlavor(){
+
+
+    const triggerPoint =
+    window.innerHeight * 0.75;
+
 
 
     flavorSections.forEach(section => {
 
 
 
-        const position =
-        section.getBoundingClientRect();
+        const sectionTop =
+        section.getBoundingClientRect().top;
 
 
 
-        const middle =
-        window.innerHeight / 2;
-
-
-
-        if(
-            position.top < middle &&
-            position.bottom > middle
-        ){
-
+        if(sectionTop < triggerPoint){
 
 
             section.classList.add("active");
 
 
-
-            const color =
-            section.getAttribute("data-color");
-
-
-
-            if(color){
-
-                document.body.style.background =
-                color;
-
-            }
-
-
-
         }
-
-        else{
-
-
-            section.classList.remove("active");
-
-
-        }
-
 
 
     });
@@ -86,11 +56,12 @@ function activateFlavor(){
 
 window.addEventListener(
     "scroll",
-    activateFlavor
+    revealFlavor
 );
 
 
-activateFlavor();
+
+revealFlavor();
 
 
 
@@ -100,9 +71,9 @@ activateFlavor();
 
 
 
-// ===============================
-// NAVBAR EFFECT
-// ===============================
+/* ===============================
+   NAVBAR SCROLL EFFECT
+================================ */
 
 
 const nav =
@@ -113,29 +84,24 @@ document.querySelector("nav");
 window.addEventListener("scroll",()=>{
 
 
-    if(!nav) return;
-
-
-
     if(window.scrollY > 80){
 
 
         nav.style.background =
-        "rgba(245,239,229,.98)";
+        "rgba(245,239,229,0.98)";
 
 
         nav.style.boxShadow =
-        "0 5px 25px rgba(61,45,34,.15)";
+        "0 8px 25px rgba(61,45,34,.15)";
 
 
     }
-
 
     else{
 
 
         nav.style.background =
-        "rgba(245,239,229,.9)";
+        "rgba(245,239,229,.90)";
 
 
         nav.style.boxShadow =
@@ -143,6 +109,7 @@ window.addEventListener("scroll",()=>{
 
 
     }
+
 
 
 });
@@ -155,9 +122,9 @@ window.addEventListener("scroll",()=>{
 
 
 
-// ===============================
-// HERO IMAGE PARALLAX
-// ===============================
+/* ===============================
+   HERO IMAGE FLOAT MOVEMENT
+================================ */
 
 
 const heroImage =
@@ -172,7 +139,7 @@ window.addEventListener("scroll",()=>{
 
 
         let movement =
-        window.scrollY * .12;
+        window.scrollY * 0.12;
 
 
 
@@ -180,8 +147,67 @@ window.addEventListener("scroll",()=>{
         `translateY(${movement}px)`;
 
 
-
     }
+
+
+});
+
+
+
+
+
+
+
+
+
+/* ===============================
+   FLAVOR IMAGE PARALLAX
+================================ */
+
+
+const productImages =
+document.querySelectorAll(
+    ".flavor-image img"
+);
+
+
+
+window.addEventListener("scroll",()=>{
+
+
+    productImages.forEach(image=>{
+
+
+        const position =
+        image.getBoundingClientRect();
+
+
+
+        const screen =
+        window.innerHeight;
+
+
+
+        if(
+            position.top < screen &&
+            position.bottom > 0
+        ){
+
+
+            let move =
+            (screen - position.top) * 0.05;
+
+
+
+            image.style.transform =
+            `translateY(${move}px)`;
+
+
+        }
+
+
+
+    });
 
 
 
@@ -195,9 +221,9 @@ window.addEventListener("scroll",()=>{
 
 
 
-// ===============================
-// ORDER BUTTON SCROLL
-// ===============================
+/* ===============================
+   BUTTON SMOOTH SCROLL
+================================ */
 
 
 const buttons =
@@ -211,20 +237,19 @@ buttons.forEach(button=>{
     button.addEventListener("click",()=>{
 
 
-        const flavors =
-        document.getElementById("flavors");
+        const products =
+        document.querySelector("#flavors");
 
 
 
-        if(flavors){
+        if(products){
 
 
-            flavors.scrollIntoView({
+            products.scrollIntoView({
 
                 behavior:"smooth"
 
             });
-
 
 
         }
@@ -245,50 +270,54 @@ buttons.forEach(button=>{
 
 
 
-// ===============================
-// NAV LINK SMOOTH SCROLL
-// ===============================
+/* ===============================
+   NAVIGATION SMOOTH SCROLL
+================================ */
 
 
-const links =
-document.querySelectorAll("nav a");
-
-
-
-links.forEach(link=>{
-
-
-    link.addEventListener("click",(event)=>{
-
-
-        const target =
-        document.querySelector(
-            link.getAttribute("href")
-        );
+const navLinks =
+document.querySelectorAll(
+    "nav a"
+);
 
 
 
-        if(target){
+navLinks.forEach(link=>{
 
 
-            event.preventDefault();
+    link.addEventListener(
+        "click",
+        (event)=>{
+
+
+            const target =
+            document.querySelector(
+                link.getAttribute("href")
+            );
 
 
 
-            target.scrollIntoView({
+            if(target){
 
-                behavior:"smooth"
 
-            });
+                event.preventDefault();
+
+
+
+                target.scrollIntoView({
+
+                    behavior:"smooth"
+
+                });
+
+
+
+            }
 
 
 
         }
-
-
-
-    });
-
+    );
 
 
 });
