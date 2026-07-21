@@ -1,70 +1,54 @@
 /* WHY CHOOSE OVEN THERAPY */
 
-.why{
-    background:#ffffff;
-    padding:80px 0;
-    text-align:center;
+.why {
+    background: #ffffff;
+    padding: 80px 20px;
+    width: 100%;
+    text-align: center;
 }
 
 
-.why-container{
-    width:100%;
-    max-width:1200px;
-    margin:0 auto;
-    padding:0 20px;
+.why-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 
-.why h2{
-    font-size:42px;
-    color:#73765b;
-    margin-bottom:40px;
+.why h2 {
+    font-size: 42px;
+    color: #73765b;
+    margin-bottom: 40px;
 }
 
 
-.features{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:30px;
-
-    width:100%;
-
+.features {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 
-.feature{
-
-    width:300px;
-
-    background:#f8f4ee;
-
-    padding:30px;
-
-    border-radius:18px;
-
-    text-align:center;
-
+.feature {
+    width: 300px;
+    background: #f8f4ee;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
 }
 
 
-.feature h3{
-
-    color:#73765b;
-
-    font-size:22px;
-
-    margin-bottom:15px;
-
+.feature h3 {
+    color: #73765b;
+    font-size: 22px;
+    margin-bottom: 15px;
 }
 
 
-.feature p{
-
-    font-size:16px;
-
+.feature p {
+    font-size: 16px;
 }
