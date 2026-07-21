@@ -1,58 +1,79 @@
 /* ===================================
    OVEN THERAPY
-   SIMPLE PREMIUM ANIMATION SCRIPT
+   PREMIUM WEBSITE SCRIPT
 =================================== */
 
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function(){
 
 
 
-/* ==============================
-   SCROLL REVEAL
-============================== */
 
 
-const sections = document.querySelectorAll(
+/* ===================================
+   SCROLL REVEAL ANIMATION
+=================================== */
+
+
+const animatedElements = document.querySelectorAll(
     ".flavor-section, .why-card, .story, .contact"
 );
 
 
 
-const observer = new IntersectionObserver(
-(entries)=>{
+animatedElements.forEach(element => {
 
-
-entries.forEach(entry=>{
-
-
-if(entry.isIntersecting){
-
-    entry.target.classList.add("show");
-
-}
-
+    element.classList.add("hidden");
 
 });
 
 
-},
-{
-    threshold:0.15
+
+
+
+function revealOnScroll(){
+
+
+    const triggerPoint =
+    window.innerHeight * 0.85;
+
+
+
+    animatedElements.forEach(element => {
+
+
+
+        const elementTop =
+        element.getBoundingClientRect().top;
+
+
+
+        if(elementTop < triggerPoint){
+
+
+            element.classList.add("show");
+
+
+        }
+
+
+
+    });
+
+
+
 }
+
+
+
+window.addEventListener(
+    "scroll",
+    revealOnScroll
 );
 
 
 
-sections.forEach(section=>{
-
-
-section.classList.add("hidden");
-
-observer.observe(section);
-
-
-});
+revealOnScroll();
 
 
 
@@ -60,81 +81,106 @@ observer.observe(section);
 
 
 
-/* ==============================
-   NAVBAR EFFECT
-============================== */
 
 
-const nav = document.querySelector("nav");
+/* ===================================
+   NAVBAR SCROLL EFFECT
+=================================== */
 
 
-
-window.addEventListener("scroll",()=>{
-
-
-if(window.scrollY > 40){
-
-
-nav.classList.add("scrolled");
-
-
-}else{
-
-
-nav.classList.remove("scrolled");
-
-
-}
+const nav =
+document.querySelector("nav");
 
 
 
-});
+window.addEventListener(
+    "scroll",
+    function(){
 
 
+        if(window.scrollY > 50){
 
 
+            nav.classList.add("scrolled");
 
 
+        }
 
-/* ==============================
-   SMOOTH SCROLL
-============================== */
-
-
-document.querySelectorAll("nav a").forEach(link=>{
+        else{
 
 
-link.addEventListener("click",(e)=>{
+            nav.classList.remove("scrolled");
 
 
-const target =
-document.querySelector(
-link.getAttribute("href")
+        }
+
+
+    }
 );
 
 
 
-if(target){
 
 
-e.preventDefault();
 
 
-target.scrollIntoView({
 
-behavior:"smooth"
+
+/* ===================================
+   SMOOTH NAVIGATION
+=================================== */
+
+
+const navLinks =
+document.querySelectorAll(
+    "nav a"
+);
+
+
+
+navLinks.forEach(link => {
+
+
+
+    link.addEventListener(
+        "click",
+        function(event){
+
+
+
+            const target =
+            document.querySelector(
+                this.getAttribute("href")
+            );
+
+
+
+            if(target){
+
+
+                event.preventDefault();
+
+
+
+                target.scrollIntoView({
+
+                    behavior:"smooth"
+
+                });
+
+
+            }
+
+
+
+        }
+    );
+
+
 
 });
 
 
-}
-
-
-
-});
-
-
-});
 
 
 
@@ -142,37 +188,148 @@ behavior:"smooth"
 
 
 
-/* ==============================
-   HERO BUTTON
-============================== */
+/* ===================================
+   HERO ORDER BUTTON
+=================================== */
 
 
 const heroButton =
-document.querySelector(".hero button");
+document.querySelector(
+    ".hero button"
+);
 
 
 
 if(heroButton){
 
 
-heroButton.addEventListener("click",()=>{
+    heroButton.addEventListener(
+        "click",
+        function(){
 
 
-document
-.querySelector("#flavors")
-.scrollIntoView({
 
-behavior:"smooth"
-
-});
+            const products =
+            document.querySelector(
+                "#flavors"
+            );
 
 
-});
+
+            if(products){
+
+
+                products.scrollIntoView({
+
+                    behavior:"smooth"
+
+                });
+
+
+            }
+
+
+
+        }
+    );
 
 
 }
 
 
+
+
+
+
+
+
+
+/* ===================================
+   MOBILE PRODUCT TOUCH EFFECT
+=================================== */
+
+
+const flavorSections =
+document.querySelectorAll(
+    ".flavor-section"
+);
+
+
+
+flavorSections.forEach(section => {
+
+
+
+    section.addEventListener(
+        "touchstart",
+        function(){
+
+
+
+            this.classList.add("active");
+
+
+
+        }
+    );
+
+
+
+
+
+    section.addEventListener(
+        "touchend",
+        function(){
+
+
+
+            setTimeout(()=>{
+
+
+                this.classList.remove("active");
+
+
+            },700);
+
+
+
+        }
+    );
+
+
+
+});
+
+
+
+
+
+
+
+
+
+/* ===================================
+   REMOVE ACTIVE WHEN SCROLLING
+=================================== */
+
+
+window.addEventListener(
+    "scroll",
+    ()=>{
+
+
+        flavorSections.forEach(section=>{
+
+
+            section.classList.remove("active");
+
+
+        });
+
+
+
+    }
+);
 
 
 
