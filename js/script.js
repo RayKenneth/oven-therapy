@@ -1,166 +1,40 @@
 /* ===================================
    OVEN THERAPY
-   INTERACTIVE WEBSITE SCRIPT
+   SCROLL ANIMATION
 =================================== */
 
 
-
-// ================================
-// SCROLL REVEAL ANIMATION
-// ================================
+document.addEventListener("DOMContentLoaded", () => {
 
 
-const animatedElements = document.querySelectorAll(
-    ".flavor-card, .why-card, .story, .order, .contact"
-);
-
-
-function revealOnScroll(){
-
-    const triggerPoint = window.innerHeight * 0.85;
+    const animatedElements = document.querySelectorAll(
+        ".flavor-card, .why-card, .story, .order, .contact"
+    );
 
 
     animatedElements.forEach(element => {
 
-
-        const elementTop = element.getBoundingClientRect().top;
-
-
-        if(elementTop < triggerPoint){
-
-            element.classList.add("show");
-
-        }
-
+        element.classList.add("hidden");
 
     });
 
 
-}
 
+    function reveal(){
 
-window.addEventListener("scroll", revealOnScroll);
+        const trigger = window.innerHeight * 0.85;
 
-revealOnScroll();
 
+        animatedElements.forEach(element => {
 
 
+            const position =
+            element.getBoundingClientRect().top;
 
 
+            if(position < trigger){
 
-
-// ================================
-// NAVBAR EFFECT
-// ================================
-
-
-const nav = document.querySelector("nav");
-
-
-window.addEventListener("scroll", ()=>{
-
-
-    if(!nav) return;
-
-
-    if(window.scrollY > 50){
-
-
-        nav.style.background =
-        "rgba(245,239,229,0.98)";
-
-
-        nav.style.boxShadow =
-        "0 5px 20px rgba(61,45,34,0.15)";
-
-
-    }
-
-    else{
-
-
-        nav.style.background =
-        "rgba(245,239,229,0.9)";
-
-
-        nav.style.boxShadow =
-        "none";
-
-
-    }
-
-
-});
-
-
-
-
-
-
-
-
-
-// ================================
-// HERO IMAGE PARALLAX EFFECT
-// ================================
-
-
-const heroImage = document.querySelector(".hero-image img");
-
-
-window.addEventListener("scroll", ()=>{
-
-
-    if(!heroImage) return;
-
-
-    const scrollY = window.scrollY;
-
-
-    heroImage.style.transform =
-    `translateY(${scrollY * 0.08}px)`;
-
-
-});
-
-
-
-
-
-
-
-
-
-// ================================
-// SMOOTH ORDER BUTTON
-// ================================
-
-
-const orderButtons = document.querySelectorAll("button");
-
-
-orderButtons.forEach(button => {
-
-
-    if(button.textContent.includes("Order")){
-
-
-        button.addEventListener("click", ()=>{
-
-
-            const flavors =
-            document.getElementById("flavors");
-
-
-            if(flavors){
-
-
-                flavors.scrollIntoView({
-
-                    behavior:"smooth"
-
-                });
-
+                element.classList.add("show");
 
             }
 
@@ -171,46 +45,33 @@ orderButtons.forEach(button => {
     }
 
 
-});
+
+    window.addEventListener("scroll", reveal);
+
+
+    reveal();
 
 
 
 
 
+    // NAVBAR EFFECT
+
+    const nav = document.querySelector("nav");
 
 
+    window.addEventListener("scroll",()=>{
 
 
-// ================================
-// ACTIVE NAVIGATION LINK
-// ================================
+        if(window.scrollY > 50){
 
+            nav.classList.add("scrolled");
 
-const sections =
-document.querySelectorAll("section");
+        }
 
+        else{
 
-const navLinks =
-document.querySelectorAll("nav a");
-
-
-
-window.addEventListener("scroll", ()=>{
-
-
-    let current = "";
-
-
-    sections.forEach(section=>{
-
-
-        const sectionTop =
-        section.offsetTop - 150;
-
-
-        if(window.scrollY >= sectionTop){
-
-            current = section.getAttribute("id");
+            nav.classList.remove("scrolled");
 
         }
 
@@ -219,20 +80,35 @@ window.addEventListener("scroll", ()=>{
 
 
 
-    navLinks.forEach(link=>{
 
 
-        link.style.color="#3D2D22";
+
+    // HERO IMAGE PARALLAX
 
 
-        if(link.getAttribute("href") === "#" + current){
+    const heroImage =
+    document.querySelector(".hero-image img");
 
-            link.style.color="#A86F4B";
+
+    window.addEventListener("scroll",()=>{
+
+
+        if(heroImage){
+
+
+            let movement =
+            window.scrollY * 0.15;
+
+
+            heroImage.style.transform =
+            `translateY(${movement}px)`;
+
 
         }
 
 
     });
+
 
 
 });
