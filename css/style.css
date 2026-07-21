@@ -65,11 +65,6 @@ nav ul li a{
 }
 
 
-nav ul li a:hover{
-    color:#73765b;
-}
-
-
 /* HERO */
 
 header{
@@ -103,15 +98,18 @@ header button{
 }
 
 
+
 /* PRODUCTS */
 
 .products{
+
+    width:100%;
 
     display:flex;
 
     justify-content:center;
 
-    align-items:flex-start;
+    align-items:center;
 
     flex-wrap:wrap;
 
@@ -189,11 +187,14 @@ header button{
 }
 
 
-/* WHY CHOOSE OVEN THERAPY */
+
+/* WHY CHOOSE */
 
 .why{
 
     background:white;
+
+    width:100%;
 
     padding:80px 8%;
 
@@ -201,6 +202,8 @@ header button{
 
 
 .why-container{
+
+    width:100%;
 
     max-width:1200px;
 
@@ -224,11 +227,13 @@ header button{
 
 .features{
 
+    width:100%;
+
     display:flex;
 
     justify-content:center;
 
-    align-items:flex-start;
+    align-items:center;
 
     gap:30px;
 
@@ -263,6 +268,13 @@ header button{
 }
 
 
+.feature p{
+
+    font-size:16px;
+
+}
+
+
 
 /* ABOUT */
 
@@ -283,6 +295,8 @@ header button{
 
     color:#73765b;
 
+    margin-bottom:20px;
+
 }
 
 
@@ -290,7 +304,7 @@ header button{
 
     max-width:850px;
 
-    margin:20px auto;
+    margin:auto;
 
     font-size:20px;
 
@@ -315,14 +329,10 @@ header button{
 
     color:#73765b;
 
-}
-
-
-#contact p{
-
-    font-size:20px;
+    margin-bottom:20px;
 
 }
+
 
 
 /* FOOTER */
@@ -345,62 +355,60 @@ footer{
 
 @media screen and (max-width:768px){
 
-nav{
+    nav{
 
-    flex-direction:column;
+        flex-direction:column;
 
-}
+        gap:15px;
 
-
-nav ul{
-
-    flex-direction:column;
-
-    text-align:center;
-
-}
+    }
 
 
-header h1{
+    nav ul{
 
-    font-size:42px;
+        flex-direction:column;
 
-}
+        text-align:center;
 
-
-.products{
-
-    flex-direction:column;
-
-    align-items:center;
-
-}
+    }
 
 
-.card{
+    header h1{
 
-    width:90%;
+        font-size:42px;
 
-    max-width:320px;
-
-}
+    }
 
 
-.card img{
+    .products{
 
-    width:130px;
+        flex-direction:column;
 
-    height:130px;
-
-}
+    }
 
 
-.features{
+    .card{
 
-    flex-direction:column;
+        width:90%;
 
-    align-items:center;
+        max-width:320px;
 
-}
+    }
+
+
+    .card img{
+
+        width:130px;
+
+        height:130px;
+
+    }
+
+
+    .features{
+
+        flex-direction:column;
+
+    }
 
 }
