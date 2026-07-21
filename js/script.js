@@ -1,74 +1,140 @@
 /* ===================================
    OVEN THERAPY
-   PREMIUM WEBSITE SCRIPT
+   SIMPLE PREMIUM ANIMATION SCRIPT
 =================================== */
 
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/* ===================================
-   SCROLL REVEAL ANIMATION
-=================================== */
+/* ==============================
+   SCROLL REVEAL
+============================== */
 
 
-const revealElements = document.querySelectorAll(
+const sections = document.querySelectorAll(
     ".flavor-section, .why-card, .story, .contact"
 );
 
 
 
-revealElements.forEach(element => {
+const observer = new IntersectionObserver(
+(entries)=>{
 
-    element.classList.add("hidden");
+
+entries.forEach(entry=>{
+
+
+if(entry.isIntersecting){
+
+    entry.target.classList.add("show");
+
+}
+
+
+});
+
+
+},
+{
+    threshold:0.15
+}
+);
+
+
+
+sections.forEach(section=>{
+
+
+section.classList.add("hidden");
+
+observer.observe(section);
+
 
 });
 
 
 
 
-function revealOnScroll(){
-
-
-    const triggerPoint =
-    window.innerHeight * 0.85;
 
 
 
-    revealElements.forEach(element => {
+/* ==============================
+   NAVBAR EFFECT
+============================== */
+
+
+const nav = document.querySelector("nav");
 
 
 
-        const elementTop =
-        element.getBoundingClientRect().top;
+window.addEventListener("scroll",()=>{
 
 
-
-        if(elementTop < triggerPoint){
-
-            element.classList.add("show");
-
-        }
+if(window.scrollY > 40){
 
 
+nav.classList.add("scrolled");
 
-    });
 
+}else{
+
+
+nav.classList.remove("scrolled");
 
 
 }
 
 
 
-window.addEventListener(
-    "scroll",
-    revealOnScroll
+});
+
+
+
+
+
+
+
+/* ==============================
+   SMOOTH SCROLL
+============================== */
+
+
+document.querySelectorAll("nav a").forEach(link=>{
+
+
+link.addEventListener("click",(e)=>{
+
+
+const target =
+document.querySelector(
+link.getAttribute("href")
 );
 
 
 
-revealOnScroll();
+if(target){
+
+
+e.preventDefault();
+
+
+target.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+
+}
+
+
+
+});
+
+
+});
 
 
 
@@ -76,70 +142,9 @@ revealOnScroll();
 
 
 
-
-
-/* ===================================
-   NAVBAR SCROLL EFFECT
-=================================== */
-
-
-const nav =
-document.querySelector("nav");
-
-
-
-window.addEventListener(
-    "scroll",
-    function(){
-
-
-
-        if(window.scrollY > 50){
-
-
-
-            nav.style.background =
-            "rgba(245,239,229,0.98)";
-
-
-
-            nav.style.boxShadow =
-            "0 8px 25px rgba(61,45,34,.15)";
-
-
-
-        }
-
-        else{
-
-
-            nav.style.background =
-            "rgba(245,239,229,.90)";
-
-
-
-            nav.style.boxShadow =
-            "none";
-
-
-        }
-
-
-
-    }
-);
-
-
-
-
-
-
-
-
-
-/* ===================================
+/* ==============================
    HERO BUTTON
-=================================== */
+============================== */
 
 
 const heroButton =
@@ -150,384 +155,24 @@ document.querySelector(".hero button");
 if(heroButton){
 
 
-    heroButton.addEventListener(
-        "click",
-        function(){
+heroButton.addEventListener("click",()=>{
 
 
-            const products =
-            document.querySelector("#flavors");
+document
+.querySelector("#flavors")
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
 
 
-
-            if(products){
-
-
-                products.scrollIntoView({
-
-                    behavior:"smooth"
-
-                });
-
-
-            }
-
-
-        }
-    );
+});
 
 
 }
 
 
-
-
-
-
-
-
-
-/* ===================================
-   NAVIGATION SMOOTH SCROLL
-=================================== */
-
-
-const navLinks =
-document.querySelectorAll(
-    "nav a"
-);
-
-
-
-navLinks.forEach(link => {
-
-
-
-    link.addEventListener(
-        "click",
-        function(event){
-
-
-
-            const target =
-            document.querySelector(
-                this.getAttribute("href")
-            );
-
-
-
-            if(target){
-
-
-
-                event.preventDefault();
-
-
-
-                target.scrollIntoView({
-
-                    behavior:"smooth"
-
-                });
-
-
-
-            }
-
-
-
-        }
-    );
-
-
-
-});
-
-
-
-
-
-
-
-
-
-/* ===================================
-   PRODUCT IMAGE FLOAT EFFECT
-=================================== */
-
-
-const productImages =
-document.querySelectorAll(
-    ".flavor-image img"
-);
-
-
-
-productImages.forEach(image => {
-
-
-
-    image.addEventListener(
-        "mouseenter",
-        function(){
-
-
-            image.style.transform =
-            "scale(1.08) translateY(-15px)";
-
-
-        }
-    );
-
-
-
-
-
-    image.addEventListener(
-        "mouseleave",
-        function(){
-
-
-            image.style.transform =
-            "scale(1) translateY(0)";
-
-
-        }
-    );
-
-
-
-});
-
-
-
-
-
-
-
-
-
-/* ===================================
-   PRODUCT CARD MOUSE EFFECT
-=================================== */
-
-
-const flavorCards =
-document.querySelectorAll(
-    ".flavor-section"
-);
-
-
-
-flavorCards.forEach(card => {
-
-
-
-    card.addEventListener(
-        "mouseenter",
-        function(){
-
-
-
-            card.style.boxShadow =
-            "0 35px 70px rgba(61,45,34,.20)";
-
-
-
-        }
-    );
-
-
-
-
-
-    card.addEventListener(
-        "mouseleave",
-        function(){
-
-
-
-            card.style.boxShadow =
-            "none";
-
-
-
-        }
-    );
-
-
-
-});
-
-
-
-
-
-
-
-
-
-/* ===================================
-   ORDER BUTTONS
-=================================== */
-
-
-const orderButtons =
-document.querySelectorAll(
-    ".order-btn"
-);
-
-
-
-orderButtons.forEach(button => {
-
-
-
-    button.addEventListener(
-        "click",
-        function(){
-
-
-
-            const contact =
-            document.querySelector(
-                "#contact"
-            );
-
-
-
-            if(contact){
-
-
-                contact.scrollIntoView({
-
-                    behavior:"smooth"
-
-                });
-
-
-            }
-
-
-        }
-    );
-
-
-
-});
-
-
-
-
-
-
-
-
-
-/* ===================================
-   LEARN MORE BUTTON
-=================================== */
-
-
-const learnButtons =
-document.querySelectorAll(
-    ".learn-btn"
-);
-
-
-
-learnButtons.forEach(button => {
-
-
-
-    button.addEventListener(
-        "click",
-        function(){
-
-
-
-            const product =
-            this.closest(
-                ".flavor-section"
-            );
-
-
-
-            const flavor =
-            product.querySelector(
-                "h2"
-            ).textContent;
-
-
-
-            this.textContent =
-            flavor + " Selected";
-
-
-
-            setTimeout(()=>{
-
-
-                this.textContent =
-                "Learn More";
-
-
-
-            },1500);
-
-
-
-        }
-    );
-
-
-
-});
-
-
-
-
-
-
-
-
-
-/* ===================================
-   PARALLAX EFFECT FOR HERO
-=================================== */
-
-
-const hero =
-document.querySelector(".hero");
-
-
-
-window.addEventListener(
-    "scroll",
-    function(){
-
-
-
-        if(hero){
-
-
-
-            let scroll =
-            window.scrollY;
-
-
-
-            hero.style.backgroundPositionY =
-            scroll * 0.3 + "px";
-
-
-
-        }
-
-
-
-    }
-);
 
 
 
